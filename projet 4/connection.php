@@ -15,8 +15,8 @@ session_start();
         <form method = "post" action = "">
             <p>
                 
-                <label for = "email">Email </label><input type = "email" name = "email" id = "email" required/></br></br>
-                <label for = "pass">Mot de passe </label><input type = "password" name = "pass" id = "pass" required/></br></br>
+                <label for = "email_connection">Email </label><input type = "email" name = "email_connection" id = "email_connection" required/></br></br>
+                <label for = "pass_connection">Mot de passe </label><input type = "password" name = "pass_connection" id = "pass_connection" required/></br></br>
                 <input type = "submit" value = "envoyé"/>
         </form>
 
@@ -31,7 +31,41 @@ session_start();
             die('Erreur : ' .$e->getMessage());
         }
 
-        //
+        if($_POST)
+        {
+            //on récupère l'adresse email de l'admin
+            $req = $db->prepare('SELECT id,nom,prenom,email,pass FROM admin WHERE email = ?');
+            $req->execute(array($_POST['email_connection']));
+            $donnees = $req->fetch();
+
+            //recupération du mot de passe
+            $pass_correct = password_verify($_POST['pass_connection'],$donnees['pass']);
+
+            //si l'adresse email n'éxiste pas
+            if(!$donnees)
+            {
+                echo 'mauvais identifiant ou mot de passe !';
+                
+            }
+            else
+            {
+                //Si le mot de passe est correct on fait la connection
+                if($pass_correct)
+                {
+                    echo 'vous êtes connecté !';
+                    $_SESSION['id'] = $donnees['id'];
+                    $_SESSION['nom'] = $donnees['nom'];
+                    $_SESSION['prenom'] = $donnees['prenom'];
+                    $_SESSION['email'] = $donnees['email'];
+                    header('Location:interface.php');     
+                }
+                else
+                {
+                    echo 'mauvais identifiant ou mot de passe !';
+                }
+            }
+            $req->CloseCursor();
+        }
         ?>
 
     </body>

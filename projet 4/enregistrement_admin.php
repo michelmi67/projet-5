@@ -20,6 +20,7 @@ session_start();
                 <label for = "pass">Mot de passe </label><input type = "password" name = "pass" id = "pass" required/></br></br>
                 <label for = "pass_verification">Vérification du mot de passe </label><input type = "password" name = "pass_verification" id = "pass_verification" required/></br></br>
                 <input type = "submit" value = "envoyé"/>
+            </p>
         </form>
 
         <?php
@@ -60,8 +61,8 @@ session_start();
             {
                 echo 'Les mots de passe ne sont pas identiques';
             }
+            $req->CloseCursor();
         }
-        $req->CloseCursor();
         
         ?>
 
