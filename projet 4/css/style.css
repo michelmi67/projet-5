@@ -1,0 +1,8 @@
+header{
+    background-color: grey;
+}
+
+#connection{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -12,9 +15,16 @@
         <script src="https://cdn.tiny.cloud/1/03puxw65ydbv9n6fvxcaqfxnd9h3hk5c1hjm1afabuf62exq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
     <body>
-        <textarea>
-            Welcome to TinyMCE!
-        </textarea>
+        <form action = "Deconnection.php" method = "post">
+            <button type = 'submit'>Page accueil</button>
+            <button type = 'submit'>Déconnection</button>
+        </form>
+        <form method = "post" action = "">    
+            <textarea name = "article">
+                Inserez votre texte !
+            </textarea>
+            <input type = "submit" value = "envoyé"/>
+        </form>
         <script>
             tinymce.init({
             selector: 'textarea',
@@ -22,5 +32,27 @@
             toolbar_mode: 'floating',
         });
         </script>
+
+        <?php
+            //Connection à la base de données
+            try
+            {
+                $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+            }
+            catch(Exeption $e)
+            {
+                die('Erreur : ' .$e->getMessage());
+            }
+
+            //Si des données sont envoyé
+            if($_POST)
+            {
+              //Envoie d'un message
+                $req = $db->prepare('INSERT INTO message (article) VALUES (?)');
+                $req->execute(array($_POST['article']));
+            }
+        ?>
+
+        <?php var_dump($_SESSION['id']); ?>   
     </body>
 </html>

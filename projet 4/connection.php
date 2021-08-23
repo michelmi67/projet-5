@@ -34,12 +34,14 @@ session_start();
         if($_POST)
         {
             //on récupère l'adresse email de l'admin
+            $email_connection = htmlspecialchars($_POST['email_connection']);
             $req = $db->prepare('SELECT id,nom,prenom,email,pass FROM admin WHERE email = ?');
-            $req->execute(array($_POST['email_connection']));
+            $req->execute(array($email_connection));
             $donnees = $req->fetch();
 
             //recupération du mot de passe
-            $pass_correct = password_verify($_POST['pass_connection'],$donnees['pass']);
+            $pass_connection = htmlspecialchars($_POST['pass_connection']);
+            $pass_correct = password_verify($pass_connection,$donnees['pass']);
 
             //si l'adresse email n'éxiste pas
             if(!$donnees)

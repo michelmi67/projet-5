@@ -39,11 +39,11 @@ session_start();
         //Si des données sont envoyés
         if($_POST){
             //Instanciation des variables
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $email = $_POST['email'];
-            $mdp = $_POST['pass'];
-            $mdp_verification = $_POST['pass_verification'];
+            $nom = htmlspecialchars($_POST['nom']) ;
+            $prenom = htmlspecialchars($_POST['prenom']);
+            $email = htmlspecialchars($_POST['email']);
+            $mdp = htmlspecialchars($_POST['pass']);
+            $mdp_verification = htmlspecialchars($_POST['pass_verification']);
 
             //Si les deux mots de passe renseignés sont les mêmes
             if($mdp === $mdp_verification)
