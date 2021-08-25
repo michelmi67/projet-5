@@ -44,13 +44,10 @@
         }
 
         //Article de Présentation
-        $req = $db->query('SELECT presentation_accueil FROM accueil');
-        while($donnees = $req->fetch())
-        {
-           echo $donnees['presentation_accueil'];    
-        } 
+        $req = $db->query('SELECT article FROM chapitre');
+        $donnees = $req->fetch();
+        echo $donnees['article'];
     ?>
-    <!--Les 3 derniers chapitres du roman-->
     <pre>
         <?php var_dump($_SESSION['id']); ?>    
     </pre>

@@ -16,15 +16,14 @@
     </head>
     <body>
         <div class = "button">
-            <button><a href = "chapitre.php">Accueil</a></button>
-            <button><a href = "interface_accueil.php">Interface de l'accueil</a></button>
+            <button><a href = "index.php">Accueil</a></button>
+            <button><a href = "interface.php">Interface</a></button>
             <form action = "Deconnection.php" method = "post">
                 <button type = 'submit'>Déconnection</button>
             </form>
         </div>
         <form method = "post" action = "">    
-            <textarea name = "article">
-                Inserez votre texte !
+            <textarea name = "presentation_accueil">
             </textarea>
             <input type = "submit" value = "envoyé"/>
         </form>
@@ -52,8 +51,8 @@
             if($_POST)
             {
               //Envoie d'un message
-                $req = $db->prepare('INSERT INTO chapitre (article) VALUES (?)');
-                $req->execute(array($_POST['article']));
+                $req = $db->prepare('INSERT INTO accueil (presentation_accueil) VALUES (?)');
+                $req->execute(array($_POST['presentation_accueil']));
             }
         ?>
 
