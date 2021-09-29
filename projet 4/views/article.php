@@ -35,13 +35,6 @@
             //bouton suivant et précédent
             $id_page_courante = (int)$_GET['texte'];
             
-            //Requette pour mettre les id dans un tabbleau
-            $req2 = $db->query('SELECT id FROM article'); 
-            $tableau_ids = array();
-            while ($donnees2 = $req2->fetch()) 
-            { 
-                $tableau_ids[] = (int)$donnees2['id'];                  
-            } 
             ?>
             <div class = "suivant_precedent">
                 <?php
@@ -50,7 +43,7 @@
                 $index_page_precedente = $index_page_courante-1;
                 $index_page_suivante = $index_page_courante+1;
 
-                //Récupération des ID des pages en fonction ces index
+                //Récupération des ID des pages en fonction de ces index
                 if(array_key_exists($index_page_precedente,$tableau_ids))
                 {
                     $id_page_precedente = $tableau_ids[$index_page_precedente];
@@ -70,59 +63,47 @@
                 
                 if(!is_null($id_page_precedente)){
                     ?>
-                    <a href = "article.php?texte=<?php echo $id_page_precedente; ?>" class = "button">précédent</a>
+                    <a href = "?action=article&texte=<?php echo $id_page_precedente; ?>" class = "button">précédent</a>
                     <?php
                 }
                 if(!is_null($id_page_suivante)){
                     ?>
-                    <a href = "article.php?texte=<?php echo $id_page_suivante; ?>" class = "button">suivant</a>
+                    <a href = "?action=article&texte=<?php echo $id_page_suivante; ?>" class = "button">suivant</a>
                     <?php
                 }
                 ?>
             </div>
         
         <h2>Commentaires</h2>
-        <form method = "post" action = "article.php?texte=<?php echo $donnees['id']?>">
+        <form method = "post" action = "">
             <input type = "text" name = "pseudo" id = "pseudo" placeholder = "Pseudo" required/><br><br>
             <textarea name = "commentaire" id = "commentaire" placeholder = "Votre commentaire" rows = "6" cols = "75" required ></textarea><br><br>
             <input type = "submit" value = "envoyé"/>
-            <?php 
-            if($_POST)
-            {
-                //Envoi d'un commentaire
-                $signaler = "false";
-                $moderer = "false"; 
-                $req = $db->prepare('INSERT INTO commentaire (id_page,auteur,message,signaler,moderer) VALUES (?,?,?,?,?)');
-                $req->execute(array($_GET['texte'],$_POST['pseudo'],$_POST['commentaire'],$signaler,$moderer));
-            } 
-            $req->CloseCursor();
-            ?>
         </form>
+        
         <?php
             //recupération des commentaire
-            $req = $db->prepare('SELECT id,auteur,message,moderer,DATE_FORMAT(date_creation,\'%d/%m/%Y\') AS date_creation_fr FROM commentaire  WHERE id_page = ? ORDER BY id DESC');
-            $req->execute(array($_GET['texte']));
-            while($donnees = $req->fetch())
+            foreach($all_commentaires as $commentaire)
             {
-                //si le commenatire n'est pas modéré
-                if($donnees['moderer'] == "false")
+                //si le commentaire n'est pas modéré
+                if($commentaire['moderer'] == "false")
                 {
                     ?>  
-                    <div id = "commentaire_<?php echo $donnees['id'];?>">
+                    <div id = "commentaire_<?php echo $commentaire['id'];?>">
                         <table>
                             <tr>
                                 <td>
-                                    <strong> Le <?php echo htmlspecialchars($donnees['date_creation_fr']), " par " , htmlspecialchars($donnees['auteur']);  ?> :</strong> 
+                                    <strong> Le <?php echo htmlspecialchars($commentaire['date_creation_fr']), " par " , htmlspecialchars($commentaire['auteur']);  ?> :</strong> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <?php echo htmlspecialchars($donnees['message']) ?>
+                                    <?php echo htmlspecialchars($commentaire['message']) ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href = "signaler.php?commentaire=<?php echo $donnees['id'] ?>" class = "button">signaler</a>
+                                    <a href = "signaler.php?commentaire=<?php echo $commentaire['id'] ?>" class = "button">signaler</a>
                                 </td>
                             </tr>
                         </table>
@@ -130,14 +111,14 @@
                 <?php
             }
             // Si le message est modéré
-            if($donnees['moderer'] == 'true')
+            if($commentaire['moderer'] == 'true')
             {
                 ?>  
-                <div id = "commentaire_<?php echo $donnees['id'];?>">
+                <div id = "commentaire_<?php echo $commentaire['id'];?>">
                     <table>
                         <tr>
                             <td>
-                                <strong> Le <?php echo htmlspecialchars($donnees['date_creation_fr']), " par " , htmlspecialchars($donnees['auteur']);  ?> :</strong> 
+                                <strong> Le <?php echo htmlspecialchars($commentaire['date_creation_fr']), " par " , htmlspecialchars($commentaire['auteur']);  ?> :</strong> 
                             </td>
                         </tr>
                         <tr>

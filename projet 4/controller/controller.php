@@ -18,6 +18,8 @@ function index_articles()
 function article($id)
 {
     $article = recup_article($id);
-    $commentaires = recup_commentaires($id);
+    $tableau_ids = recup_id_tableau();
+    $commenter = envoi_commentaire();
+    $all_commentaires = recup_commentaires($id);
     require('views/article.php');
 }
