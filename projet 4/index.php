@@ -21,7 +21,10 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'creer_billet')
     {
-        creer_billet();
+        $titre = $_GET['titre'];
+        $texte = $_GET['texte'];
+        creer_billet($titre,$texte);
+        
     }
     elseif($_GET['action'] == 'recup_article')
     {
@@ -30,6 +33,11 @@ if (isset($_GET['action']))
     elseif($_GET['action'] == 'recup_commentaire')
     {
         recup_commentaire_admin();
+    }
+    elseif($_GET['action'] == 'modif_article')
+    {
+        $id = $_GET['texte'];
+        modif_article($id);
     }
 }    
 else {

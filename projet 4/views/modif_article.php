@@ -41,11 +41,8 @@
             <textarea id = "modif_titre" name = "modif_titre" placeholder = "Inserer votre Titre" >
                 <?php
                 //Récupération du Titre
-                $req = $db->prepare('SELECT id,titre FROM article where id = ?');
-                $req->execute(array($_GET['texte']));
-                $donnees = $req->fetch();
-                echo $donnees['titre'];
-                $req->CloseCursor();
+                echo $recup_modif_titre['titre'];
+                
                 //modification titre
                 if($_POST)
                 {
@@ -59,11 +56,8 @@
             <textarea id = "modif_texte" name = "modif_texte" placeholder = "Ecriver votre texte">
             <?php
                 //Récupération du contenu
-                $req = $db->prepare('SELECT id,texte FROM article WHERE id = ?');
-                $req->execute(array($_GET['texte']));
-                $donnees = $req->fetch();
-                echo $donnees['texte'];
-                $req->CloseCursor();
+                echo $recup_modif_texte['texte'];
+                
                 //modification article
                 if($_POST)
                 {

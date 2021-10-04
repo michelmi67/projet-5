@@ -89,21 +89,43 @@ function recup_id_tableau()
     return $tableau_ids;
 }
 
-function creation_billet() //
+function creation_billet($titre,$texte) //
 {
     if($_GET)
             {
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
                 $req = $db->prepare('INSERT INTO article (titre,texte) VALUES (?,?)');
-                $req->execute(array($_GET['titre'],$_GET['texte']));
+                $req->execute(array($titre,$texte));
+                $req->CloseCursor();
             }
 }
 
 function recup_all_commentaire_signaler() //
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-    $req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
+    $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
      ORDER BY date_creation');
+     return $all_commentaire_signaler;
     
-     
 }
+
+function recup_titre($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $req = $db->prepare('SELECT id,titre FROM article where id = ?');
+    $req->execute(array($id));
+    $recup_modif_titre = $req->fetch();
+    return $recup_modif_titre;
+    
+}
+
+function recup_texte($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $req = $db->prepare('SELECT id,texte FROM article WHERE id = ?');
+    $req->execute(array($id));
+    $recup_modif_texte = $req->fetch();
+    return $recup_modif_texte;
+    
+}
+

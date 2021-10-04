@@ -58,8 +58,8 @@
                             <td><?php echo substr($titre,0,60)."...";?></td> 
                             <td><?php echo substr($texte,0,100)."...";?></td>
                             <td>
-                                <a href = "article.php?texte=<?php echo $article['id'];?>"><i class="far fa-eye"></i></a>
-                                <a href = "modif_article.php?texte=<?php echo $article['id'];?>"><i class="fas fa-pen"></i></a>
+                                <a href = "?action=article&texte=<?php echo $article['id'];?>"><i class="far fa-eye"></i></a>
+                                <a href = "?action=modif_article&texte=<?php echo $article['id'];?>"><i class="fas fa-pen"></i></a>
                                 <a href = "suprime_article.php?texte=<?php echo $article['id'];?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr> 

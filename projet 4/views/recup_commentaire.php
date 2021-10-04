@@ -25,14 +25,14 @@
         <h1>Interface des commentaires</h1>
         <?php 
             //connexion à la base de données
-           /* try
+            try
             {
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
             }
             catch(Exeption $e)
             {
                 die('Erreur :' .$e->getMessage);
-            }*/
+            }
             ?>
             <table>
                 <thead>
@@ -54,7 +54,7 @@
                 <?php        
                     //Récupération des commentaire signalé
                     //$req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\' ORDER BY date_creation');
-                    while($commentaire_signaler = $req->fetch())
+                    foreach($all_commentaire_signaler as $commentaire_signaler)
                     {
                         //instanciation des variables
                         $id = $commentaire_signaler['id'];
@@ -74,16 +74,16 @@
                             <td><?php echo $moderer ; ?></td>
                             <td>
                             <div class = "action"> 
-                                <a href = "article.php?texte=<?php echo $donnees['id_page'];?>#commentaire_<?php echo $donnees['id'];?>"><i class="far fa-eye"></i></a>
-                                <a href = "moderer_commentaire.php?commentaire=<?php echo $donnees['id'];?>"><i class="far fa-tired" class = "moderer"></i></a>
-                                <a href = "suprime_commentaire.php?commentaire=<?php echo $donnees['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                <a href = "?action=article&texte=<?php echo $commentaire_signaler['id_page'];?>#commentaire_<?php echo $commentaire_signaler['id'];?>"><i class="far fa-eye"></i></a>
+                                <a href = "?action=moderer_commentaire&commentaire=<?php echo $commentaire_signaler['id'];?>"><i class="far fa-tired" class = "moderer"></i></a>
+                                <a href = "action=suprime_commentaire&?commentaire=<?php echo $commentaire_signaler['id'];?>"><i class="far fa-trash-alt"></i></a>
                             </div>
                             </td>
                             <td><?php echo $date; ?></td>
                         </tr> 
                         <?php            
                     }
-                    $req->CloseCursor();
+                    //$req->CloseCursor();
                     ?>
                 </tbody>
             </table>

@@ -24,8 +24,8 @@ function article($id)
     require('views/article.php');
 }
 
-function creer_billet(){
-    $billet = creation_billet();
+function creer_billet($titre,$texte){
+    $billet = creation_billet($titre,$texte);
     require('views/creer_billet.php');
 }
 function recup_article_admin()
@@ -37,4 +37,11 @@ function recup_article_admin()
 function recup_commentaire_admin(){
     $all_commentaire_signaler = recup_all_commentaire_signaler();
     require('views/recup_commentaire.php');
+}
+
+function modif_article($id)
+{
+    $recup_modif_titre = recup_titre($id);
+    $recup_modif_texte = recup_texte($id);
+    require('views/modif_article.php'); 
 }
