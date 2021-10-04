@@ -25,14 +25,14 @@
         <h1>Interface des articles</h1>
         <?php 
             //connexion à la base de données
-            try
+            /*try
             {
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
             }
             catch(Exeption $e)
             {
                 die('Erreur :' .$e->getMessage);
-            }
+            }*/
             ?>
             <table>
                 <thead>
@@ -46,21 +46,21 @@
                 <tbody>
                     <?php        
                     //Article
-                    $req = $db->query('SELECT id,titre,texte, DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM article ORDER BY id ');
-                    while($donnees = $req->fetch())
+                   //$req = $db->query('SELECT id,titre,texte, DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM article ORDER BY id ');
+                    foreach($all_articles as $article)
                     {
                         //instanciation des variables
-                        $titre = strip_tags($donnees['titre']);
-                        $texte = strip_tags($donnees['texte']);
+                        $titre = strip_tags($article['titre']);
+                        $texte = strip_tags($article['texte']);
                         ?> 
                         <tr>
-                            <td><?php echo $donnees['id']; ?></td>
+                            <td><?php echo $article['id']; ?></td>
                             <td><?php echo substr($titre,0,60)."...";?></td> 
                             <td><?php echo substr($texte,0,100)."...";?></td>
                             <td>
-                                <a href = "article.php?texte=<?php echo $donnees['id'];?>"><i class="far fa-eye"></i></a>
-                                <a href = "modif_article.php?texte=<?php echo $donnees['id'];?>"><i class="fas fa-pen"></i></a>
-                                <a href = "suprime_article.php?texte=<?php echo $donnees['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                <a href = "article.php?texte=<?php echo $article['id'];?>"><i class="far fa-eye"></i></a>
+                                <a href = "modif_article.php?texte=<?php echo $article['id'];?>"><i class="fas fa-pen"></i></a>
+                                <a href = "suprime_article.php?texte=<?php echo $article['id'];?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr> 
                         <?php            

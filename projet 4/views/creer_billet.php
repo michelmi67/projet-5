@@ -22,7 +22,7 @@
         <!--Inclusion du header -->
         <?php include('header.php'); ?>
         <h1>Creation d'un billet</h1>
-        <form method = "get" action = "creer_billet.php">    
+        <form method = "get" action = "">    
             <textarea id = "titre" name = "titre" placeholder = "Inserer votre Titre" ></textarea>
             <textarea id = "texte" name = "texte" placeholder = "Ecriver votre texte"></textarea>
             <input type = "submit" value = "envoyé"/>
@@ -47,7 +47,7 @@
         </script>
 
         <?php
-            //Connection à la base de données
+            /*//Connection à la base de données
             try
             {
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
@@ -63,7 +63,7 @@
               //Envoie d'un titre et d'un texte
                 $req = $db->prepare('INSERT INTO article (titre,texte) VALUES (?,?)');
                 $req->execute(array($_GET['titre'],$_GET['texte']));
-            }
+            }*/
         ?>
         <!--Inclusion du footer -->
         <?php include('footer.php') ?>

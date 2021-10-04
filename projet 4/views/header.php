@@ -5,10 +5,10 @@
             if(isset($_SESSION['id']))
             {
                 ?>
-                <a href = "creer_billet" class = "button">Creation billet</a>
-                <a href = "recup_article.php" class = "button">Interface article</a>
-                <a href = "recup_commentaire.php" class = "button">Interface commentaire</a>
-                <a href = "deconnection.php" class = "button" id = "button_deconnection">Deconnection</a>
+                <a href = "?action=creer_billet" class = "button">Creation billet</a>
+                <a href = "?action=recup_article" class = "button">Interface article</a>
+                <a href = "?action=recup_commentaire" class = "button">Interface commentaire</a>
+                <a href = "?action=deconnection" class = "button" id = "button_deconnection">Deconnection</a>
                 <?php
             }
             ?>

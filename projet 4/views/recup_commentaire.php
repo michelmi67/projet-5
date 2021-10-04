@@ -25,14 +25,14 @@
         <h1>Interface des commentaires</h1>
         <?php 
             //connexion à la base de données
-            try
+           /* try
             {
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
             }
             catch(Exeption $e)
             {
                 die('Erreur :' .$e->getMessage);
-            }
+            }*/
             ?>
             <table>
                 <thead>
@@ -53,17 +53,17 @@
                 <tbody>
                 <?php        
                     //Récupération des commentaire signalé
-                    $req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\' ORDER BY date_creation');
-                    while($donnees = $req->fetch())
+                    //$req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\' ORDER BY date_creation');
+                    while($commentaire_signaler = $req->fetch())
                     {
                         //instanciation des variables
-                        $id = $donnees['id'];
-                        $id_page = $donnees['id_page'];
-                        $auteur = $donnees['auteur'];
-                        $message = strip_tags($donnees['message']);
-                        $signaler = $donnees['signaler'];
-                        $moderer = $donnees['moderer'];
-                        $date = $donnees['date_creation_fr'];
+                        $id = $commentaire_signaler['id'];
+                        $id_page = $commentaire_signaler['id_page'];
+                        $auteur = $commentaire_signaler['auteur'];
+                        $message = strip_tags($commentaire_signaler['message']);
+                        $signaler = $commentaire_signaler['signaler'];
+                        $moderer = $commentaire_signaler['moderer'];
+                        $date = $commentaire_signaler['date_creation_fr'];
                         ?> 
                         <tr>
                             <td><?php echo $id; ?></td>
