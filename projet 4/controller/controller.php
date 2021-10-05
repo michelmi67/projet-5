@@ -36,6 +36,7 @@ function recup_article_admin()
 
 function recup_commentaire_admin(){
     $all_commentaire_signaler = recup_all_commentaire_signaler();
+    $all_commentaire = recup_all_commentaire();
     require('views/recup_commentaire.php');
 }
 
@@ -44,4 +45,10 @@ function modif_article($id)
     $recup_modif_titre = recup_titre($id);
     $recup_modif_texte = recup_texte($id);
     require('views/modif_article.php'); 
+}
+
+function deconnection()
+{
+    $deconnection = deconnection_admin();
+    require('views/header.php');
 }

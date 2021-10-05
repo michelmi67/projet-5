@@ -64,6 +64,8 @@
                 $req = $db->prepare('INSERT INTO article (titre,texte) VALUES (?,?)');
                 $req->execute(array($_GET['titre'],$_GET['texte']));
             }*/
+           // $titre = $_GET['titre'];
+           // $texte = $_GET['texte'];
         ?>
         <!--Inclusion du footer -->
         <?php include('footer.php') ?>

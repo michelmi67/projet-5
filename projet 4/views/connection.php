@@ -64,7 +64,7 @@ session_start();
                     $_SESSION['nom'] = $donnees['nom'];
                     $_SESSION['prenom'] = $donnees['prenom'];
                     $_SESSION['email'] = $donnees['email'];
-                    header('Location:index.php');     
+                    header('Location:?action=accueil');     
                 }
                 else
                 {

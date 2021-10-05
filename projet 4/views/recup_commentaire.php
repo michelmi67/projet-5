@@ -23,17 +23,6 @@
         <!--Inclusion du header -->
         <?php include('header.php'); ?>
         <h1>Interface des commentaires</h1>
-        <?php 
-            //connexion à la base de données
-            try
-            {
-                $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-            }
-            catch(Exeption $e)
-            {
-                die('Erreur :' .$e->getMessage);
-            }
-            ?>
             <table>
                 <thead>
                     <tr >
@@ -53,7 +42,6 @@
                 <tbody>
                 <?php        
                     //Récupération des commentaire signalé
-                    //$req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\' ORDER BY date_creation');
                     foreach($all_commentaire_signaler as $commentaire_signaler)
                     {
                         //instanciation des variables
@@ -83,7 +71,6 @@
                         </tr> 
                         <?php            
                     }
-                    //$req->CloseCursor();
                     ?>
                 </tbody>
             </table>
@@ -104,17 +91,16 @@
                 <tbody>
                     <?php        
                     //Récupération des commentaire
-                    $req = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire ORDER BY date_creation ');
-                    while($donnees = $req->fetch())
+                    foreach($all_commentaire as $commentaire)
                     {
                         //instanciation des variables
-                        $id = $donnees['id'];
-                        $id_page = $donnees['id_page'];
-                        $auteur = $donnees['auteur'];
-                        $message = strip_tags($donnees['message']);
-                        $signaler = $donnees['signaler'];
-                        $moderer = $donnees['moderer'];
-                        $date = $donnees['date_creation_fr'];
+                        $id = $commentaire['id'];
+                        $id_page = $commentaire['id_page'];
+                        $auteur = $commentaire['auteur'];
+                        $message = strip_tags($commentaire['message']);
+                        $signaler = $commentaire['signaler'];
+                        $moderer = $commentaire['moderer'];
+                        $date = $commentaire['date_creation_fr'];
                         ?> 
                         <tr>
                             <td><?php echo $id; ?></td>
@@ -125,9 +111,9 @@
                             <td><?php echo $moderer; ?></td>
                             <td>
                                 <div class = "action"> 
-                                    <a href = "article.php?texte=<?php echo $donnees['id_page'];?>#commentaire_<?php echo $donnees['id'];?>"><i class="far fa-eye"></i></a>
-                                    <a href = "moderer_commentaire.php?commentaire=<?php echo $donnees['id'];?>"><i class="far fa-tired"></i></a>
-                                    <a href = "suprime_commentaire.php?commentaire=<?php echo $donnees['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                    <a href = "?action=article&texte=<?php echo $commentaire['id_page'];?>#commentaire_<?php echo $commentaire['id'];?>"><i class="far fa-eye"></i></a>
+                                    <a href = "?action=moderer_commentaire&commentaire=<?php echo $commentaire['id'];?>"><i class="far fa-tired"></i></a>
+                                    <a href = "?suprime_commentaire&commentaire=<?php echo $commentaire['id'];?>"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </td>
                             <td><?php echo $date; ?></td>

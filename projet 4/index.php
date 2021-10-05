@@ -23,6 +23,7 @@ if (isset($_GET['action']))
     {
         $titre = $_GET['titre'];
         $texte = $_GET['texte'];
+        var_dump($titre);
         creer_billet($titre,$texte);
         
     }
@@ -39,6 +40,11 @@ if (isset($_GET['action']))
         $id = $_GET['texte'];
         modif_article($id);
     }
+    elseif($_GET['action'] == 'deconnection')
+    {
+        deconnection();
+    }
+    
 }    
 else {
     accueil();
