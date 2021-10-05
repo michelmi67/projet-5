@@ -138,6 +138,14 @@ function recup_texte($id)
     
 }
 
+function delete_article($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $req = $db->prepare('DELETE  FROM article WHERE id = ?');
+    $req->execute(array($id));
+    header('Location:?action=recup_article');
+}
+
 function deconnection_admin()
 {   
     session_start();

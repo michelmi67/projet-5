@@ -47,6 +47,12 @@ function modif_article($id)
     require('views/modif_article.php'); 
 }
 
+function suprime_article($id)
+{
+    $suprime_article = delete_article($id);
+    require('views/recup_article.php'); 
+}
+
 function deconnection()
 {
     $deconnection = deconnection_admin();

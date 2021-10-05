@@ -40,6 +40,11 @@ if (isset($_GET['action']))
         $id = $_GET['texte'];
         modif_article($id);
     }
+    elseif($_GET['action'] == 'suprime_article')
+    {   
+        $id = $_GET['texte'];
+        suprime_article($id);
+    }
     elseif($_GET['action'] == 'deconnection')
     {
         deconnection();
