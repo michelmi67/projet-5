@@ -165,6 +165,15 @@ function delete_commentaire($id)
     header('Location:?action=recup_commentaire');
 }
 
+function signaler_commentaire($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $signaler = "true";
+    $req = $db->prepare('UPDATE commentaire SET signaler = ? WHERE id = ? ');
+    $req->execute(array($signaler,$id));
+    header('Location: ' . $_SERVER['HTTP_REFERER']); 
+}
+
 function deconnection_admin()
 {   
     session_start();

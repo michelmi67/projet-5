@@ -103,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href = "signaler.php?commentaire=<?php echo $commentaire['id'] ?>" class = "button">signaler</a>
+                                    <a href = "?action=signaler&commentaire=<?php echo $commentaire['id'] ?>" class = "button">signaler</a>
                                 </td>
                             </tr>
                         </table>

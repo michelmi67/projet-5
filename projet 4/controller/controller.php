@@ -65,6 +65,12 @@ function suprime_commentaire($id)
     require('views/recup_commentaire.php');
 }
 
+function signaler($id)
+{
+    $signaler = signaler_commentaire($id);
+    require('views/article.php');
+}
+
 function deconnection()
 {
     $deconnection = deconnection_admin();

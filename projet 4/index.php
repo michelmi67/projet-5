@@ -55,6 +55,11 @@ if (isset($_GET['action']))
         $id = $_GET['commentaire'];
         suprime_commentaire($id);
     }
+    elseif($_GET['action'] == 'signaler')
+    {
+        $id = $_GET['commentaire'];
+        signaler($id);
+    }
     elseif($_GET['action'] == 'deconnection')
     {
         deconnection();
