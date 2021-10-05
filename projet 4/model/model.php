@@ -146,6 +146,17 @@ function delete_article($id)
     header('Location:?action=recup_article');
 }
 
+function moderation_commentaire($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $signaler = "false";
+    $moderer = "true";
+    $id = $_GET['commentaire'];
+    $req = $db->prepare('UPDATE commentaire SET signaler = ?, moderer = ? WHERE id = ?');
+    $req->execute(array($signaler,$moderer,$id));
+    header('Location:?action=recup_commentaire');
+}
+
 function deconnection_admin()
 {   
     session_start();

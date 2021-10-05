@@ -31,10 +31,6 @@ if (isset($_GET['action']))
     {
         recup_article_admin();
     }
-    elseif($_GET['action'] == 'recup_commentaire')
-    {
-        recup_commentaire_admin();
-    }
     elseif($_GET['action'] == 'modif_article')
     {
         $id = $_GET['texte'];
@@ -44,6 +40,15 @@ if (isset($_GET['action']))
     {   
         $id = $_GET['texte'];
         suprime_article($id);
+    }
+    elseif($_GET['action'] == 'recup_commentaire')
+    {
+        recup_commentaire_admin();
+    }
+    elseif($_GET['action'] == 'moderer_commentaire')
+    {   
+        $id = $_GET['commentaire'];
+        moderer_commentaire($id);
     }
     elseif($_GET['action'] == 'deconnection')
     {

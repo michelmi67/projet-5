@@ -28,16 +28,11 @@ function creer_billet($titre,$texte){
     $billet = creation_billet($titre,$texte);
     require('views/creer_billet.php');
 }
+
 function recup_article_admin()
 {
     $all_articles = recup_all_articles();
     require('views/recup_article.php');
-}
-
-function recup_commentaire_admin(){
-    $all_commentaire_signaler = recup_all_commentaire_signaler();
-    $all_commentaire = recup_all_commentaire();
-    require('views/recup_commentaire.php');
 }
 
 function modif_article($id)
@@ -51,6 +46,17 @@ function suprime_article($id)
 {
     $suprime_article = delete_article($id);
     require('views/recup_article.php'); 
+}
+
+function recup_commentaire_admin(){
+    $all_commentaire_signaler = recup_all_commentaire_signaler();
+    $all_commentaire = recup_all_commentaire();
+    require('views/recup_commentaire.php');
+}
+
+function moderer_commentaire($id)
+{
+    $commentaire_moderer = moderation_commentaire($id);
 }
 
 function deconnection()
