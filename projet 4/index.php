@@ -50,6 +50,11 @@ if (isset($_GET['action']))
         $id = $_GET['commentaire'];
         moderer_commentaire($id);
     }
+    elseif($_GET['action'] == 'suprime_commentaire')
+    {
+        $id = $_GET['commentaire'];
+        suprime_commentaire($id);
+    }
     elseif($_GET['action'] == 'deconnection')
     {
         deconnection();

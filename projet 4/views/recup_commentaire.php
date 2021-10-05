@@ -64,7 +64,7 @@
                             <div class = "action"> 
                                 <a href = "?action=article&texte=<?php echo $commentaire_signaler['id_page'];?>#commentaire_<?php echo $commentaire_signaler['id'];?>"><i class="far fa-eye"></i></a>
                                 <a href = "?action=moderer_commentaire&commentaire=<?php echo $commentaire_signaler['id'];?>"><i class="far fa-tired" class = "moderer"></i></a>
-                                <a href = "action=suprime_commentaire&?commentaire=<?php echo $commentaire_signaler['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                <a href = "?action=suprime_commentaire&commentaire=<?php echo $commentaire_signaler['id'];?>"><i class="far fa-trash-alt"></i></a>
                             </div>
                             </td>
                             <td><?php echo $date; ?></td>
@@ -113,7 +113,7 @@
                                 <div class = "action"> 
                                     <a href = "?action=article&texte=<?php echo $commentaire['id_page'];?>#commentaire_<?php echo $commentaire['id'];?>"><i class="far fa-eye"></i></a>
                                     <a href = "?action=moderer_commentaire&commentaire=<?php echo $commentaire['id'];?>"><i class="far fa-tired"></i></a>
-                                    <a href = "?suprime_commentaire&commentaire=<?php echo $commentaire['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                    <a href = "?action=suprime_commentaire&commentaire=<?php echo $commentaire['id'];?>"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </td>
                             <td><?php echo $date; ?></td>

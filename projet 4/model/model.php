@@ -157,6 +157,14 @@ function moderation_commentaire($id)
     header('Location:?action=recup_commentaire');
 }
 
+function delete_commentaire($id)
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $req = $db->prepare('DELETE  FROM commentaire WHERE id = ?');
+    $req->execute(array($id));
+    header('Location:?action=recup_commentaire');
+}
+
 function deconnection_admin()
 {   
     session_start();

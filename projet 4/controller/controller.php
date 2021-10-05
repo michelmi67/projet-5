@@ -59,6 +59,12 @@ function moderer_commentaire($id)
     $commentaire_moderer = moderation_commentaire($id);
 }
 
+function suprime_commentaire($id)
+{
+    $suprime_commenatire = delete_commentaire($id);
+    require('views/recup_commentaire.php');
+}
+
 function deconnection()
 {
     $deconnection = deconnection_admin();
