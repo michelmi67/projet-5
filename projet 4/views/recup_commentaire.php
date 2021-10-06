@@ -21,7 +21,7 @@
     </head>
     <body class = "recup_article">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>Interface des commentaires</h1>
             <table>
                 <thead>
@@ -32,7 +32,7 @@
                         <td>ID</td>
                         <td>ID page</td>
                         <td>Auteur</td>
-                        <td >Texte</td>
+                        <td>Texte</td>
                         <td>Signaler</td>
                         <td>Moderer</td>
                         <td>Action</td>

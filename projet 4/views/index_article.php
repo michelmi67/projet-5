@@ -17,21 +17,9 @@
     </head>
     <body class = "index_texte">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>L'ange du passé</h1>
         <?php 
-            //connexion à la base de données
-            try
-            {
-                $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-            }
-            catch(Exeption $e)
-            {
-                die('Erreur :' .$e->getMessage);
-            }
-
-            
-            
             foreach($all_articles as $article)
             {
                 $texte = strip_tags($article['texte']);
@@ -54,7 +42,7 @@
             }
         ?>
         <!--Inclusion du footer -->
-        <?php include('footer.php') ?>
+        <?php include('include/footer.php') ?>
         <!-- javascript -->
         <script src = "js/main.js"></script>
         

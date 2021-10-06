@@ -14,10 +14,10 @@ session_start();
     </head>
     <body>
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>    
+        <?php include('include/header.php'); ?>    
         <h1>Connection d'un administrateur</h1>
         <!--Formulaire d'inscription pour un admin -->
-        <form method = "post" action = "connection.php">
+        <form method = "post" action = "#">
             <p>
                 <label for = "email_connection">Email </label><input type = "email" name = "email_connection" id = "email_connection" required/><br><br>
                 <label for = "pass_connection">Mot de passe </label><input type = "password" name = "pass_connection" id = "pass_connection" required/><br><br>
@@ -59,11 +59,11 @@ session_start();
                 //Si le mot de passe est correct on fait la connection
                 if($pass_correct)
                 {
-                    echo 'vous êtes connecté !';
-                    $_SESSION['id'] = $donnees['id'];
-                    $_SESSION['nom'] = $donnees['nom'];
-                    $_SESSION['prenom'] = $donnees['prenom'];
-                    $_SESSION['email'] = $donnees['email'];
+                    
+                    $_SESSION['id'] = $donnees['id']; // 
+                    $_SESSION['nom'] = $donnees['nom'];//
+                    $_SESSION['prenom'] = $donnees['prenom'];//
+                    $_SESSION['email'] = $donnees['email'];//
                     header('Location:?action=accueil');     
                 }
                 else
@@ -75,7 +75,7 @@ session_start();
         }
         ?>
         <!--Inclusion du footer -->
-        <?php include('footer.php') ?>
+        <?php include('include/footer.php') ?>
         <!-- javascript -->
         <script src = "js/main.js"></script>
     </body>

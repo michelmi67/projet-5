@@ -21,9 +21,14 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'creer_billet')
     {
-        $titre = $_GET['titre'];
-        $texte = $_GET['texte'];
-        var_dump($titre);
+        $titre = null;
+        $texte = null;
+        if(isset($_POST['titre']))
+        {
+
+            $titre = $_POST['titre'];
+            $texte = $_POST['texte'];
+        }
         creer_billet($titre,$texte);
         
     }

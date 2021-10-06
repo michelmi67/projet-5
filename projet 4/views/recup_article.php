@@ -21,7 +21,7 @@
     </head>
     <body class = "recup_article">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>Interface des articles</h1>
         <table>
                 <thead>
@@ -58,7 +58,7 @@
                 </tbody>
             </table>
             <!--Inclusion du footer -->
-            <?php include('footer.php') ?>
+            <?php include('include/footer.php') ?>
             <!-- javascript -->
         <script src = "js/main.js"></script>
     </body>

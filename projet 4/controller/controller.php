@@ -25,7 +25,11 @@ function article($id)
 }
 
 function creer_billet($titre,$texte){
-    $billet = creation_billet($titre,$texte);
+    if($titre != null)
+    {
+
+        $billet = creation_billet($titre,$texte);
+    }
     require('views/creer_billet.php');
 }
 

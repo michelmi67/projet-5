@@ -20,23 +20,9 @@
     </head>
     <body class = "interface">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>Bienvenue sur le blog de Jean Forteroche !</h1>
         <h3>acteur et écrivain</h3>
-        <?php
-            //Connection à la base de données
-            try
-            {
-                $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-            }
-            catch(Exeption $e)
-            {
-                die('Erreur : ' .$e->getMessage());
-            }
-        ?>
-        <?php
-  
-        ?>
         <form method = "post" action = "#">    
             <textarea id = "modif_titre" name = "modif_titre" placeholder = "Inserer votre Titre" >
                 <?php
@@ -71,7 +57,7 @@
             <input type = "submit" value = "modifier"/>
             </form>
             <!--Inclusion du footer -->
-            <?php include('footer.php') ?>
+            <?php include('include/footer.php') ?>
             <!-- script pour le textarea titre -->
             <script>
                 tinymce.init({

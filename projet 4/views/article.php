@@ -16,7 +16,7 @@
     </head>
     <body class = "article">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <?php
             //connexion à la base de données
             try
@@ -33,7 +33,7 @@
             echo $article['texte'];
             
             //bouton suivant et précédent
-            $id_page_courante = (int)$_GET['texte'];
+            $id_page_courante = (int)$_GET['texte']; //
             
             ?>
             <div class = "suivant_precedent">
@@ -59,7 +59,7 @@
                 else
                 {
                     $id_page_suivante = null;
-                }
+                } //
                 
                 if(!is_null($id_page_precedente)){
                     ?>
@@ -133,7 +133,7 @@
         }
         ?>
         <!--Inclusion du footer -->
-        <?php include('footer.php') ?>
+        <?php include('include/footer.php') ?>
         <!-- javascript -->
         <script src = "js/main.js"></script>
     </body>

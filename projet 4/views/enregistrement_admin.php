@@ -12,7 +12,7 @@ session_start();
             <h1>Inscription d'un administrateur</h1>
         </header>
         <!--Formulaire d'inscription pour un admin -->
-        <form method = "post" action = "enregistrement_admin.php">
+        <form method = "post" action = "#">
             <p>
                 <label for = "nom">Nom </label><input type = "text" name = "nom" id = "nom" required/><br><br>
                 <label for = "prenom">Prénom </label><input type = "text" name = "prenom" id = "prenom" required/><br><br>
@@ -54,14 +54,13 @@ session_start();
                 //Puis on créer un nouveau admin
                 $req = $db->prepare('INSERT INTO admin (nom,prenom,email,pass) VALUES (?,?,?,?)');
                 $req->execute(array($nom,$prenom,$email,$mdp_hache));
-                echo 'Nouveau admin enregistré !';
                 header('Location:connection.php');
             }
             else
             {
                 echo 'Les mots de passe ne sont pas identiques';
             }
-            $req->CloseCursor();
+            
         }
         ?>
     </body>

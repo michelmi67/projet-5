@@ -91,13 +91,14 @@ function recup_id_tableau()
 
 function creation_billet($titre,$texte) //
 {
-    if($_GET)
+    if($_POST)
             {
-                var_dump($titre);
+                
                 $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
                 $req = $db->prepare('INSERT INTO article (titre,texte) VALUES (?,?)');
                 $req->execute(array($titre,$texte));
-                $req->CloseCursor();
+                var_dump($titre);
+                var_dump($texte);
             }
 }
 

@@ -20,12 +20,12 @@
     </head>
     <body class = "interface">
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>Creation d'un billet</h1>
-        <form method = "get" action = "">    
+        <form method = "post" action = "?action=creer_billet">    
             <textarea id = "titre" name = "titre" placeholder = "Inserer votre Titre" ></textarea>
             <textarea id = "texte" name = "texte" placeholder = "Ecriver votre texte"></textarea>
-            <input type = "submit" value = "envoyé"/>
+            <input type = "submit" value = "envoyer"/>
         </form>
         <!-- script pour le textarea titre -->
         <script>
@@ -68,7 +68,7 @@
            // $texte = $_GET['texte'];
         ?>
         <!--Inclusion du footer -->
-        <?php include('footer.php') ?>
+        <?php include('include/footer.php') ?>
         <!-- javascript -->
         <script src = "js/main.js"></script>  
     </body>

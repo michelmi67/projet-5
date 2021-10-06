@@ -17,7 +17,7 @@
     </head>
     <body class = "accueil" >
         <!--Inclusion du header -->
-        <?php include('header.php'); ?>
+        <?php include('include/header.php'); ?>
         <h1>Bienvenue sur le blog de Jean Forteroche !</h1>
         <h3>acteur et écrivain</h3>
         <article>
@@ -75,7 +75,7 @@
     </table>
 
     <!--Inclusion du footer -->
-    <?php include('footer.php') ?>
+    <?php include('include/footer.php') ?>
 
     <!-- javascript -->
     <script src = "js/main.js"></script>
