@@ -1,6 +1,6 @@
 <header>
-        <div class = "connection">
-            <a href = "views/connection.php" class = "button" id = "button_connection">Connection admin</a>
+        <div class = "connexion">
+            <a href = "?action=connexion" class = "button" id = "button_connexion">connexion admin</a>
             <?php
             if(isset($_SESSION['id']))
             {
@@ -8,7 +8,7 @@
                 <a href = "?action=creer_billet" class = "button">Creation billet</a>
                 <a href = "?action=recup_article" class = "button">Interface article</a>
                 <a href = "?action=recup_commentaire" class = "button">Interface commentaire</a>
-                <a href = "?action=deconnection" class = "button" id = "button_deconnection">Deconnection</a>
+                <a href = "?action=deconnexion" class = "button" id = "button_deconnexion">Deconnexion</a>
                 <?php
             }
             ?>

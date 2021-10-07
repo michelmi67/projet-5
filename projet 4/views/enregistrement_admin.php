@@ -24,7 +24,7 @@ session_start();
         </form>
 
         <?php
-        //Connection à la base de données
+        //connexion à la base de données
         try
         {
             $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
@@ -54,7 +54,7 @@ session_start();
                 //Puis on créer un nouveau admin
                 $req = $db->prepare('INSERT INTO admin (nom,prenom,email,pass) VALUES (?,?,?,?)');
                 $req->execute(array($nom,$prenom,$email,$mdp_hache));
-                header('Location:connection.php');
+                header('Location:connexion.php');
             }
             else
             {

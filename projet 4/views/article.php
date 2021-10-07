@@ -35,14 +35,11 @@
             //bouton suivant et précédent
             $id_page_courante = (int)$_GET['texte']; //
             
-            ?>
-            <div class = "suivant_precedent">
-                <?php
                 //Récupération des Index dans le tableau ID 
                 $index_page_courante = array_search($id_page_courante, $tableau_ids);
                 $index_page_precedente = $index_page_courante-1;
                 $index_page_suivante = $index_page_courante+1;
-
+                
                 //Récupération des ID des pages en fonction de ces index
                 if(array_key_exists($index_page_precedente,$tableau_ids))
                 {
@@ -59,8 +56,10 @@
                 else
                 {
                     $id_page_suivante = null;
-                } //
-                
+                } 
+                ?>
+                <div class = "suivant_precedent">
+                <?php
                 if(!is_null($id_page_precedente)){
                     ?>
                     <a href = "?action=article&texte=<?php echo $id_page_precedente; ?>" class = "button">précédent</a>
@@ -75,7 +74,7 @@
             </div>
         
         <h2>Commentaires</h2>
-        <form method = "post" action = "">
+        <form method = "post" action = "#">
             <input type = "text" name = "pseudo" id = "pseudo" placeholder = "Pseudo" required/><br><br>
             <textarea name = "commentaire" id = "commentaire" placeholder = "Votre commentaire" rows = "6" cols = "75" required ></textarea><br><br>
             <input type = "submit" value = "envoyé"/>

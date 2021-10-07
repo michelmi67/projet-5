@@ -21,6 +21,7 @@ function article($id)
     $tableau_ids = recup_id_tableau();
     $commenter = envoi_commentaire();
     $all_commentaires = recup_commentaires($id);
+    
     require('views/article.php');
 }
 
@@ -75,8 +76,19 @@ function signaler($id)
     require('views/article.php');
 }
 
-function deconnection()
+function deconnexion()
 {
-    $deconnection = deconnection_admin();
+    $deconnexion = deconnexion_admin();
     require('views/header.php');
+}
+
+function connexion($email_connexion,$pass_connexion){
+    
+    
+    require('views/connexion.php');
+    if($email_connexion != null)
+
+    {
+        $email = connexion_admin($email_connexion,$pass_connexion);
+    }
 }

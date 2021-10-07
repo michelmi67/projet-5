@@ -45,28 +45,6 @@
             toolbar_mode: 'floating',
         });
         </script>
-
-        <?php
-            /*//Connection à la base de données
-            try
-            {
-                $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-            }
-            catch(Exeption $e)
-            {
-                die('Erreur : ' .$e->getMessage());
-            }
-
-            //Si des données sont envoyé
-            if($_GET)
-            {
-              //Envoie d'un titre et d'un texte
-                $req = $db->prepare('INSERT INTO article (titre,texte) VALUES (?,?)');
-                $req->execute(array($_GET['titre'],$_GET['texte']));
-            }*/
-           // $titre = $_GET['titre'];
-           // $texte = $_GET['texte'];
-        ?>
         <!--Inclusion du footer -->
         <?php include('include/footer.php') ?>
         <!-- javascript -->
