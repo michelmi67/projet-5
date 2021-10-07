@@ -40,10 +40,15 @@ function recup_article_admin()
     require('views/recup_article.php');
 }
 
-function modif_article($id)
+function modif_article($id,$modifier_titre,$modifier_texte)
 {
     $recup_modif_titre = recup_titre($id);
     $recup_modif_texte = recup_texte($id);
+    if($modifier_titre != null){
+
+        $titre_modifier = modif_titre($id,$modifier_titre);
+        $texte_modifier = modif_texte($id,$modifier_texte);
+    }
     require('views/modif_article.php'); 
 }
 

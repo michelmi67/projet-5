@@ -139,6 +139,24 @@ function recup_texte($id)
     
 }
 
+function modif_titre($id,$modifier_titre)
+{
+    
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $modifier_titre = $_POST['modif_titre'];
+    $titre_modifier = $db->prepare('UPDATE article SET titre = ? WHERE id = ?');
+    $titre_modifier->execute(array($modifier_titre,$id));                   
+}
+
+function modif_texte($id,$modifier_texte)
+{
+    
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    $modifier_titre = $_POST['modif_titre'];
+    $titre_modifier = $db->prepare('UPDATE article SET texte = ? WHERE id = ?');
+    $titre_modifier->execute(array($modifier_texte,$id));                   
+}
+
 function delete_article($id)
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');

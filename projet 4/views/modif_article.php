@@ -23,36 +23,18 @@
         <?php include('include/header.php'); ?>
         <h1>Bienvenue sur le blog de Jean Forteroche !</h1>
         <h3>acteur et écrivain</h3>
-        <form method = "post" action = "#">    
+        <form method = "post" action = "?action=modif_article&texte=<?php echo $recup_modif_texte['id']?>">    
             <textarea id = "modif_titre" name = "modif_titre" placeholder = "Inserer votre Titre" >
                 <?php
                 //Récupération du Titre
                 echo $recup_modif_titre['titre'];
-                
-                //modification titre
-                if($_POST)
-                {
-                    
-                    $req = $db->prepare('UPDATE article SET titre = ? WHERE id = ?');
-                    $req->execute(array($_POST['modif_titre'],$_GET['texte']));
-                    $req->CloseCursor();
-                }
                 ?>
             </textarea>
             <textarea id = "modif_texte" name = "modif_texte" placeholder = "Ecriver votre texte">
             <?php
                 //Récupération du contenu
                 echo $recup_modif_texte['texte'];
-                
-                //modification article
-                if($_POST)
-                {
-                    
-                    $req = $db->prepare('UPDATE article SET texte = ? WHERE id = ?');
-                    $req->execute(array($_POST['modif_texte'],$_GET['texte']));
-                    $req->CloseCursor();
-                }
-                ?>
+            ?>
             </textarea>
             <input type = "submit" value = "modifier"/>
             </form>

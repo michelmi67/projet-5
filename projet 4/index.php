@@ -39,7 +39,14 @@ if (isset($_GET['action']))
     elseif($_GET['action'] == 'modif_article')
     {
         $id = $_GET['texte'];
-        modif_article($id);
+        $modifier_titre = null;
+        $modifier_texte = null;
+        if(isset($_POST['modif_titre']))
+        {
+            $modifier_titre = $_POST['modif_titre'];
+            $modifier_texte = $_POST['modif_texte'];
+        }
+        modif_article($id,$modifier_titre,$modifier_texte);
     }
     elseif($_GET['action'] == 'suprime_article')
     {   
