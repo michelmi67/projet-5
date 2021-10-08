@@ -97,3 +97,9 @@ function connexion($email_connexion,$pass_connexion){
         $email = connexion_admin($email_connexion,$pass_connexion);
     }
 }
+
+function enregistrement_admin()
+{
+    $admin = enregistrement();
+    require('views/enregistrement_admin.php');
+}

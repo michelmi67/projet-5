@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['id']))
+    {
+        header('Location:index.php');
+    }
 ?>
 <!DOCTYPE HTML>
 <html lang = "fr">
@@ -7,9 +11,9 @@ session_start();
         <?php include('include/head.php')?>
     </head>
     <body>
-        <header>
-            <h1>Inscription d'un administrateur</h1>
-        </header>
+        <!--Inclusion du header -->
+        <?php include('include/header.php'); ?>
+        <h1>Inscription d'un administrateur</h1>
         <!--Formulaire d'inscription pour un admin -->
         <form method = "post" action = "#">
             <p>
@@ -21,46 +25,5 @@ session_start();
                 <input type = "submit" value = "envoyé"/>
             </p>
         </form>
-
-        <?php
-        //connexion à la base de données
-        try
-        {
-            $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-        }
-        catch(Exeption $e)
-        {
-            die('Erreur : ' .$e->getMessage());
-        }
-
-        //Enregistrement d'un admin
-
-        //Si des données sont envoyés
-        if($_POST){
-            //Instanciation des variables
-            $nom = htmlspecialchars($_POST['nom']) ;
-            $prenom = htmlspecialchars($_POST['prenom']);
-            $email = htmlspecialchars($_POST['email']);
-            $mdp = htmlspecialchars($_POST['pass']);
-            $mdp_verification = htmlspecialchars($_POST['pass_verification']);
-
-            //Si les deux mots de passe renseignés sont les mêmes
-            if($mdp === $mdp_verification)
-            {
-                //on hache le mot de passe
-                $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
-
-                //Puis on créer un nouveau admin
-                $req = $db->prepare('INSERT INTO admin (nom,prenom,email,pass) VALUES (?,?,?,?)');
-                $req->execute(array($nom,$prenom,$email,$mdp_hache));
-                header('Location:connexion.php');
-            }
-            else
-            {
-                echo 'Les mots de passe ne sont pas identiques';
-            }
-            
-        }
-        ?>
     </body>
 </html>

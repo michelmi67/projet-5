@@ -237,6 +237,34 @@ function connexion_admin($email_connexion,$pass_connexion)
     }    
 }
 
+function enregistrement()
+{
+    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
+    if($_POST){
+        //Instanciation des variables
+        $nom = htmlspecialchars($_POST['nom']) ;
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $mdp = htmlspecialchars($_POST['pass']);
+        $mdp_verification = htmlspecialchars($_POST['pass_verification']);
 
+        //Si les deux mots de passe renseignés sont les mêmes
+        if($mdp === $mdp_verification)
+        {
+            //on hache le mot de passe
+            $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
+
+            //Puis on créer un nouveau admin
+            $req = $db->prepare('INSERT INTO admin (nom,prenom,email,pass) VALUES (?,?,?,?)');
+            $req->execute(array($nom,$prenom,$email,$mdp_hache));
+            header('Location:?action=accueil');
+        }
+        else
+        {
+            echo 'Les mots de passe ne sont pas identiques';
+        }
+        
+    }
+}
 
 
