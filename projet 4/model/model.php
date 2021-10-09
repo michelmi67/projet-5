@@ -105,7 +105,7 @@ function creation_billet($titre,$texte)
 function recup_all_commentaire_signaler() 
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-    $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
+    $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y à %Hh/%imin/%ss \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
      ORDER BY date_creation');
      return $all_commentaire_signaler;
     
@@ -114,7 +114,7 @@ function recup_all_commentaire_signaler()
 function recup_all_commentaire()
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-    $all_commentaire = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire 
+    $all_commentaire = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y à %Hh/%imin/%ss \') AS date_creation_fr FROM commentaire 
     ORDER BY date_creation ');
     return $all_commentaire;
 }
