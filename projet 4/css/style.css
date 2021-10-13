@@ -1,6 +1,6 @@
 
 header{
-    height: 80px;
+    height: 90px;
 }
 
 header, footer{
@@ -8,17 +8,6 @@ header, footer{
     color: white;
 }
 
-html{
-
-    width: 90%;
-    margin: auto;
-    
-}
-
-.connexion{
-    display: flex;
-    justify-content: flex-end;
-}
 
 .button{
     border: solid 1px black;
@@ -38,7 +27,6 @@ table{
     border: 1px solid black;
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 20%;
     width: 1000px;
     text-align: center;
     
@@ -47,9 +35,23 @@ table{
 thead{
     font-weight: bold;
 }
+/*header*/
+.connexion {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.connexion a,.article a{
+    margin: 3px;
+}
 
 /*Page Accueil*/
-
+.titre{
+    margin: auto;
+}
+.accuel h1 h3{
+    text-align: center;
+}
 .accueil td{
     border: 1px solid black;
     min-width: 150px;
@@ -87,3 +89,6 @@ i{
 .td_button{
     text-align: end;
 }
+
+/*----------------------------------------------------------------------- Media queries -------------------------------------------------------------------------------------*/
+
