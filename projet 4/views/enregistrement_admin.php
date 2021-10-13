@@ -24,6 +24,11 @@ if(!isset($_SESSION['id']))
                 <label for = "pass_verification">Vérification du mot de passe </label><input type = "password" name = "pass_verification" id = "pass_verification" required/><br><br>
                 <input type = "submit" value = "envoyé"/>
             </p>
+            <?php
+            if(isset($message_erreur)){
+                echo $message_erreur;
+            }
+            ?>
         </form>
     </body>
 </html>
