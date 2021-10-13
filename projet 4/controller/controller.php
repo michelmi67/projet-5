@@ -22,6 +22,29 @@ function article($id)
     $commenter = envoi_commentaire();
     $all_commentaires = recup_commentaires($id);
     
+    //Récupération des Index dans le tableau ID 
+     $index_page_courante = array_search(intval($id), $tableau_ids);
+     $index_page_precedente = $index_page_courante-1;
+     $index_page_suivante = $index_page_courante+1;
+     
+     //Récupération des ID des pages en fonction de ces index
+     if(array_key_exists($index_page_precedente,$tableau_ids))
+     {
+         $id_page_precedente = $tableau_ids[$index_page_precedente];
+     }
+     else
+     {
+         $id_page_precedente = null;
+     }
+     if(array_key_exists($index_page_suivante,$tableau_ids))
+     {
+         $id_page_suivante = $tableau_ids[$index_page_suivante];
+     }
+     else
+     {
+         $id_page_suivante = null;
+     } 
+    
     require('views/article.php');
 }
 
@@ -87,15 +110,49 @@ function deconnexion()
     require('views/header.php');
 }
 
-function connexion($email_connexion,$pass_connexion){
+function connexion(){
     
-    
-    require('views/connexion.php');
-    if($email_connexion != null)
+    session_start();
 
+    
+    $email_connexion = null;
+    $pass_connexion = null;
+    $message_erreur = null;
+    if(isset($_POST['email_connexion']))
+    {
+        $email_connexion = htmlspecialchars($_POST['email_connexion']);
+        $pass_connexion = htmlspecialchars($_POST['pass_connexion']);
+    }
+    if($email_connexion != null)
+    
     {
         $email = connexion_admin($email_connexion,$pass_connexion);
+        $pass_correct = password_verify($pass_connexion,$email['pass']);
+        //si l'adresse email n'éxiste pas
+        if(!$email)
+        {
+            $message_erreur = 'mauvais identifiant ou mot de passe !';
+            
+        }
+        else
+        {
+            //Si le mot de passe est correct on fait la connexion
+            if($pass_correct)
+            {
+                
+                $_SESSION['id'] = $email['id'];  
+                $_SESSION['nom'] = $email['nom'];
+                $_SESSION['prenom'] = $email['prenom'];
+                $_SESSION['email'] = $email['email'];
+                header('Location:?action=accueil');     
+            }
+            else
+            {
+                $message_erreur =  'mauvais identifiant ou mot de passe !';
+            }
+        }    
     }
+    require('views/connexion.php');
 }
 
 function enregistrement_admin()

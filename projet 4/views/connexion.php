@@ -1,6 +1,4 @@
-<?php
-    session_start();
-?>
+
 <!DOCTYPE HTML>
 <html lang = "fr">
     <head>
@@ -18,6 +16,12 @@
                 <input type = "submit" value = "envoyé"/>
             </p>
         </form>
+        <?php
+        if(isset($message_erreur))
+        {
+            echo $message_erreur;
+        }
+        ?>
         <!--Inclusion du footer -->
         <?php include('include/footer.php') ?>
         <!-- javascript -->

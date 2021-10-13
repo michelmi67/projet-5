@@ -75,14 +75,8 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'connexion')
     {
-        $email_connexion = null;
-        $pass_connexion = null;
-        if(isset($_POST['email_connexion']))
-        {
-            $email_connexion = $_POST['email_connexion'];
-            $pass_connexion = $_POST['pass_connexion'];
-        }
-        connexion($email_connexion,$pass_connexion);
+        
+        connexion();
     }
     elseif($_GET['action'] == 'enregistrement_admin')
     {

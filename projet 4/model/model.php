@@ -204,37 +204,11 @@ function deconnexion_admin()
 function connexion_admin($email_connexion,$pass_connexion)
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root','');
-    //on récupère l'adresse email de l'admin
-    $email_connexion = htmlspecialchars($_POST['email_connexion']);
     $req = $db->prepare('SELECT id,nom,prenom,email,pass FROM admin WHERE email = ?');
     $req->execute(array($email_connexion));
     $email = $req->fetch();
-    //recupération du mot de passe
-    $pass_connexion = htmlspecialchars($_POST['pass_connexion']);
-    $pass_correct = password_verify($pass_connexion,$email['pass']);
-    //si l'adresse email n'éxiste pas
-    if(!$email)
-    {
-        echo 'mauvais identifiant ou mot de passe !';
-        
-    }
-    else
-    {
-        //Si le mot de passe est correct on fait la connexion
-        if($pass_correct)
-        {
-            
-            $_SESSION['id'] = $email['id'];  
-            $_SESSION['nom'] = $email['nom'];
-            $_SESSION['prenom'] = $email['prenom'];
-            $_SESSION['email'] = $email['email'];
-            header('Location:?action=accueil');     
-        }
-        else
-        {
-            echo 'mauvais identifiant ou mot de passe !';
-        }
-    }    
+    return $email;
+    
 }
 
 function enregistrement()
