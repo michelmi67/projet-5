@@ -25,31 +25,7 @@
             echo $article['titre'];
             echo $article['texte'];
             
-            //bouton suivant et précédent
-            $id_page_courante = (int)$_GET['texte']; //
-            
-                //Récupération des Index dans le tableau ID 
-                $index_page_courante = array_search($id_page_courante, $tableau_ids);
-                $index_page_precedente = $index_page_courante-1;
-                $index_page_suivante = $index_page_courante+1;
-                
-                //Récupération des ID des pages en fonction de ces index
-                if(array_key_exists($index_page_precedente,$tableau_ids))
-                {
-                    $id_page_precedente = $tableau_ids[$index_page_precedente];
-                }
-                else
-                {
-                    $id_page_precedente = null;
-                }
-                if(array_key_exists($index_page_suivante,$tableau_ids))
-                {
-                    $id_page_suivante = $tableau_ids[$index_page_suivante];
-                }
-                else
-                {
-                    $id_page_suivante = null;
-                } 
+           
                 ?>
                 <div class = "suivant_precedent">
                 <?php
