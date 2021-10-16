@@ -25,7 +25,7 @@
             echo $article['titre'];
             echo $article['texte'];
             
-           
+                //bouton suivant et précédant          
                 ?>
                 <div class = "suivant_precedent">
                 <?php
