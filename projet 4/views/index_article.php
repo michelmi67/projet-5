@@ -18,20 +18,13 @@
                 {
                     $texte = strip_tags($article['texte']);
                     ?> 
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td ><?php echo $article['titre'];?> </td>
-                            </tr>
-                            <tr>
-                                <td class = "texte_<?php echo $article['id'] ?>">
-                                    <?php echo substr($texte,0,1000)."...";?><br>
-                                    <p><a href = "?action=article&texte=<?php echo $article['id'] ?>" > lire la suite...</a></p>
-                                </td>
-                                                    
-                            </tr>            
-                        </tbody>
-                    </table>
+                    <div class = "articles">
+                        <?php echo $article['titre'];?> 
+                        <p class = "texte_<?php echo $article['id'] ?>">
+                             <?php echo substr($texte,0,1000)."...";?>
+                        <p>
+                        <a href = "?action=article&texte=<?php echo $article['id'] ?>" > lire la suite</a>
+                    </div>              
                     <?php
                 }
             ?>
