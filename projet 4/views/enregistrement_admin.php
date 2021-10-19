@@ -10,12 +10,13 @@ if(!isset($_SESSION['id']))
     <head>
         <?php include('include/head.php')?>
     </head>
-    <body>
-        <!--Inclusion du header -->
-        <?php include('include/header.php'); ?>
-        <h1>Inscription d'un administrateur</h1>
-        <!--Formulaire d'inscription pour un admin -->
-        <form method = "post" action = "#">
+    <body class = "enregistrement_admin">
+        <div class = "container">
+            <!--Inclusion du header -->
+            <?php include('include/header.php'); ?>
+            <h1>Inscription d'un administrateur</h1>
+            <!--Formulaire d'inscription pour un admin -->
+            <form method = "post" action = "#">
             <p>
                 <label for = "nom">Nom </label><input type = "text" name = "nom" id = "nom" required/><br><br>
                 <label for = "prenom">Prénom </label><input type = "text" name = "prenom" id = "prenom" required/><br><br>
@@ -29,6 +30,12 @@ if(!isset($_SESSION['id']))
                 echo $message_erreur;
             }
             ?>
+            <!--Inclusion du footer -->
+            <?php include('include/footer.php') ?>
+        </div>
+        <!-- javascript -->
+        <script src = "js/main.js"></script>  
+        </div>
         </form>
     </body>
 </html>

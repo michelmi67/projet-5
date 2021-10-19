@@ -15,9 +15,10 @@
     </head>
     <body class = "recup_article">
         <!--Inclusion du header -->
-        <?php include('include/header.php'); ?>
-        <h1>Interface des articles</h1>
-        <table>
+        <div class = container>
+            <?php include('include/header.php'); ?>
+            <h1>Interface des articles</h1>
+            <table>
                 <thead>
                     <tr>
                         <td>ID</td>
@@ -53,6 +54,7 @@
             </table>
             <!--Inclusion du footer -->
             <?php include('include/footer.php') ?>
+        </div>
             <!-- javascript -->
         <script src = "js/main.js"></script>
     </body>

@@ -31,7 +31,7 @@ class CommentManager extends DbManager
     public function recup_all_commentaire_signaler() 
     {
         $db = $this->dbConnect();
-        $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y à %Hh/%imin/%ss \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
+        $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
         ORDER BY date_creation');
         return $all_commentaire_signaler;
     }
@@ -39,8 +39,8 @@ class CommentManager extends DbManager
     public function recup_all_commentaire()
     {
         $db = $this->dbConnect();
-        $all_commentaire = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y à %Hh/%imin/%ss \') AS date_creation_fr FROM commentaire 
-        ORDER BY date_creation ');
+        $all_commentaire = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire
+        ORDER BY date_creation DESC ');
         return $all_commentaire;
     }
 
