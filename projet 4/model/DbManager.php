@@ -5,7 +5,7 @@ class DbManager
     {
         try
         {
-            $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root',''); 
+            $db = new PDO('mysql:host=db5005368488.hosting-data.io;dbname=dbs4503584;charset=utf8','dbu1174469','Openclassrooms0123&'); 
         }
         catch(Exeption $e)
         {
