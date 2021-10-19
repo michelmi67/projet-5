@@ -14,16 +14,7 @@
             <!--Inclusion du header -->
             <?php include('include/header.php'); ?>
             <?php
-                //connexion à la base de données
-                try
-                {
-                    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8','root',''); 
-                }
-                catch(Exeption $e)
-                {
-                    die('Erreur :' . $e->getMessage());
-                }
-
+                
                 //Affichage d'un article;
                 echo $article['titre'];
                 echo $article['texte'];
