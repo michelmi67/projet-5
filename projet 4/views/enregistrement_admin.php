@@ -23,7 +23,7 @@ if(!isset($_SESSION['id']))
                 <label for = "email">Email </label><input type = "email" name = "email" id = "email" required/><br><br>
                 <label for = "pass">Mot de passe </label><input type = "password" name = "pass" id = "pass" required/><br><br>
                 <label for = "pass_verification">Vérification du mot de passe </label><input type = "password" name = "pass_verification" id = "pass_verification" required/><br><br>
-                <input type = "submit" value = "envoyé"/>
+                <button class="btn btn-secondary" type = "submit" value = "envoyé">envoyer</button>
             </p>
             <?php
             if(isset($message_erreur)){
