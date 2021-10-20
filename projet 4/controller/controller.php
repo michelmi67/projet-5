@@ -1,6 +1,6 @@
 <?php
 
-require('model/DbManager.php');
+require('model/Manager.php');
 require('model/PostManager.php');
 require('model/CommentManager.php');
 require('model/UserManager.php');
@@ -93,6 +93,7 @@ function suprime_article($id)
 {
     $postManager = new PostManager();
     $suprime_article = $postManager->delete_article($id);
+    header('Location:?action=recup_article');
     require('views/recup_article.php'); 
 }
 
@@ -107,12 +108,14 @@ function moderer_commentaire($id)
 {
     $commentManager = new CommentManager();
     $commentaire_moderer = $commentManager->moderation_commentaire($id);
+    header('Location:?action=recup_commentaire');
 }
 
 function suprime_commentaire($id)
 {
     $commentManager = new CommentManager();
     $suprime_commenatire = $commentManager->delete_commentaire($id);
+    header('Location:?action=recup_commentaire');
     require('views/recup_commentaire.php');
 }
 
@@ -120,6 +123,7 @@ function signaler($id)
 {
     $commentManager = new CommentManager();
     $signaler = $commentManager->signaler_commentaire($id);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     require('views/article.php');
 }
 

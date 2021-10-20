@@ -51,16 +51,14 @@ class CommentManager extends Manager
         $moderer = "true";
         $id = $_GET['commentaire'];
         $req = $db->prepare('UPDATE commentaire SET signaler = ?, moderer = ? WHERE id = ?');
-        $req->execute(array($signaler,$moderer,$id));
-        header('Location:?action=recup_commentaire');
+        $req->execute(array($signaler,$moderer,$id));  
     }
 
     public function delete_commentaire($id)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE  FROM commentaire WHERE id = ?');
-        $req->execute(array($id));
-        header('Location:?action=recup_commentaire');
+        $req->execute(array($id));   
     }
 
     public function signaler_commentaire($id)
@@ -68,8 +66,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $signaler = "true";
         $req = $db->prepare('UPDATE commentaire SET signaler = ? WHERE id = ? ');
-        $req->execute(array($signaler,$id));
-        header('Location: ' . $_SERVER['HTTP_REFERER']); 
+        $req->execute(array($signaler,$id)); 
     }
 
     

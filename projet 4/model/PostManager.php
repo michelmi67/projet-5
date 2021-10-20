@@ -97,7 +97,5 @@ class PostManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE  FROM article WHERE id = ?');
         $req->execute(array($id));
-        header('Location:?action=recup_article');
     }
-
 }

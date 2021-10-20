@@ -1,5 +1,5 @@
 <?php
-class DbManager
+class Manager
 {
     protected function dbConnect()
     {
