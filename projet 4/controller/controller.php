@@ -64,6 +64,7 @@ function creer_billet($titre,$texte){
         if($_POST){
             $postManager = new PostManager();
             $billet = $postManager->creation_billet($titre,$texte);
+            header('Location:?action=recup_article');
         }
     }
     require('views/creer_billet.php');
@@ -85,6 +86,7 @@ function modif_article($id,$modifier_titre,$modifier_texte)
 
         $titre_modifier = $postManager->modif_titre($id,$modifier_titre);
         $texte_modifier = $postManager->modif_texte($id,$modifier_texte);
+        header('Location:?action=recup_article');
     }
     require('views/modif_article.php'); 
 }
