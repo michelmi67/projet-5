@@ -1,7 +1,7 @@
 <?php
-require_once("model/DbManager.php"); 
+require_once("model/Manager.php"); 
 
-class UserManager extends DbManager
+class UserManager extends Manager
 {
     public function connexion_admin($email_connexion,$pass_connexion)
     {

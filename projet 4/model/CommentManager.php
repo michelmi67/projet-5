@@ -1,7 +1,7 @@
 <?php
-require_once("model/DbManager.php");
+require_once("model/Manager.php");
 
-class CommentManager extends DbManager
+class CommentManager extends Manager
 {
     function envoi_commentaire()
     {

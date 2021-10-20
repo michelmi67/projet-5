@@ -1,7 +1,7 @@
 <?php
-require_once("model/DbManager.php"); 
+require_once("model/Manager.php"); 
 
-class PostManager extends DbManager
+class PostManager extends Manager
 {
     public function recup_3_derniers_articles()
     {
