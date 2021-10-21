@@ -45,13 +45,6 @@
             <!--Les 3 derniers articles du roman-->
             <div class = "row">
                 <table>
-                    <thead>
-                        <tr>
-                            <td>Titre</td>
-                            <td>Texte</td>
-                        </tr>
-                    </thead>
-                    <tbody>
                     <?php        
                     //recupération des 3 derniers articles
                     foreach($articles as $article)
@@ -61,13 +54,12 @@
                         $texte = strip_tags($article['texte']);
                         ?> 
                             <tr>
-                                <td><?php echo substr($titre,0,100);?></td> 
-                                <td><?php echo substr($texte,0,250);?><p><a href = "?action=article&texte=<?php echo $article['id'] ?>" > lire la suite...</a></p></td>
+                                <td class = "titre"><?php echo substr($titre,0,100);?></td> 
+                                <td class = "texte"><?php echo substr($texte,0,250);?><p><a href = "?action=article&texte=<?php echo $article['id'] ?>" > lire la suite...</a></p></td>
                             </tr> 
                         <?php            
                     }
                     ?>
-                    </tbody>
                 </table>
             </div>
             

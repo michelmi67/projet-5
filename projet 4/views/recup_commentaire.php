@@ -52,7 +52,7 @@
                                 <td><?php echo $id; ?></td>
                                 <td ><?php echo $id_page;?></td>
                                 <td><?php echo $auteur; ?></td>  
-                                <td><?php echo substr($message,0,100);?></td>
+                                <td><?php echo substr($message,0,50);?></td>
                                 <td><?php echo $signaler; ?></td>
                                 <td><?php echo $moderer ; ?></td>
                                 <td>
@@ -101,7 +101,7 @@
                                 <td><?php echo $id; ?></td>
                                 <td ><?php echo $id_page;?></td>
                                 <td><?php echo $auteur; ?></td>  
-                                <td><?php echo substr($message,0,100);?></td>
+                                <td><?php echo substr($message,0,50);?></td>
                                 <td><?php echo $signaler; ?></td> 
                                 <td><?php echo $moderer; ?></td>
                                 <td>
