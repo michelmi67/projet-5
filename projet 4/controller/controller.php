@@ -22,11 +22,16 @@ function index_articles()
 
 function article()
 {
+    //on récupère les articles
     $id = $_GET['texte'];
     $postManager = new PostManager();
     $article = $postManager->recup_article($id);
+    
+    //récupération du tableau des id pour les boutons suivant et précédent
     $tableau_ids = $postManager->recup_id_tableau();
     $commentManager = new CommentManager();
+    
+    //de base un commenatire n'est ni signalé ni modérer
     if($_POST){
         $signaler = "false";
         $moderer = "false";  
@@ -56,19 +61,21 @@ function article()
      {
          $id_page_suivante = null;
      } 
-    
     require('views/article.php');
 }
 
 function creer_billet(){
     $titre = null;
     $texte = null;
+
+    //si il existe des données sont envoyé
     if(isset($_POST['titre']))
     {
-
         $titre = $_POST['titre'];
         $texte = $_POST['texte'];
     }
+    
+    //si il ne sont null on creer un billet
     if($titre != null)
     {
         if($_POST){
@@ -92,16 +99,22 @@ function modif_article()
     $id = $_GET['texte'];
     $modifier_titre = null;
     $modifier_texte = null;
+
+    //si il existe des données envoyé
     if(isset($_POST['modif_titre']))
     {
         $modifier_titre = $_POST['modif_titre'];
         $modifier_texte = $_POST['modif_texte'];
     }
+
+    //récupération du titre et du texte de l'article
     $postManager = new PostManager();
     $recup_modif_titre = $postManager->recup_titre($id);
     $recup_modif_texte = $postManager->recup_texte($id);
-    if($modifier_titre != null){
 
+    //si il y a déjà des données dans la base de données
+    if($modifier_titre != null){
+        //on modifie le titre et le texte de l'article
         $titre_modifier = $postManager->modif_titre($id,$modifier_titre);
         $texte_modifier = $postManager->modif_texte($id,$modifier_texte);
         header('Location:?action=recup_article');
@@ -163,16 +176,19 @@ function deconnexion()
 function connexion(){
     
     session_start();
-
-    
+ 
     $email_connexion = null;
     $pass_connexion = null;
     $message_erreur = null;
+
+    // si il existe des données envoyé
     if(isset($_POST['email_connexion']))
     {
         $email_connexion = htmlspecialchars($_POST['email_connexion']);
         $pass_connexion = htmlspecialchars($_POST['pass_connexion']);
     }
+
+    // si des données sont dans la base de donnée
     if($email_connexion != null)
     {   
         $userManager = new UserManager();
