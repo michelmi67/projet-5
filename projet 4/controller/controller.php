@@ -27,8 +27,9 @@ function article($id)
     $tableau_ids = $postManager->recup_id_tableau();
     $commentManager = new CommentManager();
     if($_POST){
-
-        $commenter = $commentManager->envoi_commentaire();
+        $signaler = "false";
+        $moderer = "false";  
+        $commenter = $commentManager->envoi_commentaire($signaler,$moderer);
     }
     $all_commentaires = $commentManager->recup_commentaires($id);
     

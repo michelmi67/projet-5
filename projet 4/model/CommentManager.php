@@ -3,10 +3,8 @@ require_once("model/Manager.php");
 
 class CommentManager extends Manager
 {
-    function envoi_commentaire()
+    function envoi_commentaire($signaler,$moderer)
     {
-        $signaler = "false";
-        $moderer = "false";  
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO commentaire (id_page,auteur,message,signaler,moderer) VALUES (?,?,?,?,?)');
         $req->execute(array($_GET['texte'],$_POST['pseudo'],$_POST['commentaire'],$signaler,$moderer));

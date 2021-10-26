@@ -58,6 +58,7 @@ header{
 .recup_article td{
     border: 1px solid black;
     min-width: 150px;
+    text-align: center;
 }
 
 .recup_article footer{
