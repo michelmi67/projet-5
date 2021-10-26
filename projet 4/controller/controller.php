@@ -20,8 +20,9 @@ function index_articles()
     require('views/index_article.php');
 }
 
-function article($id)
+function article()
 {
+    $id = $_GET['texte'];
     $postManager = new PostManager();
     $article = $postManager->recup_article($id);
     $tableau_ids = $postManager->recup_id_tableau();
@@ -59,7 +60,15 @@ function article($id)
     require('views/article.php');
 }
 
-function creer_billet($titre,$texte){
+function creer_billet(){
+    $titre = null;
+    $texte = null;
+    if(isset($_POST['titre']))
+    {
+
+        $titre = $_POST['titre'];
+        $texte = $_POST['texte'];
+    }
     if($titre != null)
     {
         if($_POST){
@@ -78,8 +87,16 @@ function recup_article_admin()
     require('views/recup_article.php');
 }
 
-function modif_article($id,$modifier_titre,$modifier_texte)
+function modif_article()
 {
+    $id = $_GET['texte'];
+    $modifier_titre = null;
+    $modifier_texte = null;
+    if(isset($_POST['modif_titre']))
+    {
+        $modifier_titre = $_POST['modif_titre'];
+        $modifier_texte = $_POST['modif_texte'];
+    }
     $postManager = new PostManager();
     $recup_modif_titre = $postManager->recup_titre($id);
     $recup_modif_texte = $postManager->recup_texte($id);
@@ -92,8 +109,9 @@ function modif_article($id,$modifier_titre,$modifier_texte)
     require('views/modif_article.php'); 
 }
 
-function suprime_article($id)
+function suprime_article()
 {
+    $id = $_GET['texte'];
     $postManager = new PostManager();
     $suprime_article = $postManager->delete_article($id);
     header('Location:?action=recup_article');
@@ -107,23 +125,26 @@ function recup_commentaire_admin(){
     require('views/recup_commentaire.php');
 }
 
-function moderer_commentaire($id)
+function moderer_commentaire()
 {
+    $id = $_GET['commentaire'];
     $commentManager = new CommentManager();
     $commentaire_moderer = $commentManager->moderation_commentaire($id);
     header('Location:?action=recup_commentaire');
 }
 
-function suprime_commentaire($id)
+function suprime_commentaire()
 {
+    $id = $_GET['commentaire'];
     $commentManager = new CommentManager();
-    $suprime_commenatire = $commentManager->delete_commentaire($id);
+    $suprime_commentaire = $commentManager->delete_commentaire($id);
     header('Location:?action=recup_commentaire');
     require('views/recup_commentaire.php');
 }
 
-function signaler($id)
+function signaler()
 {
+    $id = $_GET['commentaire'];
     $commentManager = new CommentManager();
     $signaler = $commentManager->signaler_commentaire($id);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -207,8 +228,7 @@ function enregistrement_admin()
         else
         {
             $message_erreur =  'Les mots de passe ne sont pas identiques';
-        }
-        
+        }   
     }
     require('views/enregistrement_admin.php');
 }

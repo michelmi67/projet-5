@@ -13,21 +13,11 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'article') 
     {
-        $id = $_GET['texte'];
-        article($id);
+        article();
     }
     elseif($_GET['action'] == 'creer_billet')
     {
-        $titre = null;
-        $texte = null;
-        if(isset($_POST['titre']))
-        {
-
-            $titre = $_POST['titre'];
-            $texte = $_POST['texte'];
-        }
-        creer_billet($titre,$texte);
-        
+        creer_billet();   
     }
     elseif($_GET['action'] == 'recup_article')
     {
@@ -35,20 +25,11 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'modif_article')
     {
-        $id = $_GET['texte'];
-        $modifier_titre = null;
-        $modifier_texte = null;
-        if(isset($_POST['modif_titre']))
-        {
-            $modifier_titre = $_POST['modif_titre'];
-            $modifier_texte = $_POST['modif_texte'];
-        }
-        modif_article($id,$modifier_titre,$modifier_texte);
+        modif_article();
     }
     elseif($_GET['action'] == 'suprime_article')
     {   
-        $id = $_GET['texte'];
-        suprime_article($id);
+        suprime_article();
     }
     elseif($_GET['action'] == 'recup_commentaire')
     {
@@ -56,18 +37,15 @@ if (isset($_GET['action']))
     }
     elseif($_GET['action'] == 'moderer_commentaire')
     {   
-        $id = $_GET['commentaire'];
-        moderer_commentaire($id);
+        moderer_commentaire();
     }
     elseif($_GET['action'] == 'suprime_commentaire')
     {
-        $id = $_GET['commentaire'];
-        suprime_commentaire($id);
+        suprime_commentaire();
     }
     elseif($_GET['action'] == 'signaler')
     {
-        $id = $_GET['commentaire'];
-        signaler($id);
+       signaler();
     }
     elseif($_GET['action'] == 'deconnexion')
     {
@@ -81,8 +59,7 @@ if (isset($_GET['action']))
     elseif($_GET['action'] == 'enregistrement_admin')
     {
         enregistrement_admin();
-    }
-    
+    }   
 }    
 else {
     accueil();
