@@ -17,6 +17,6 @@ class UserManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO admin (nom,prenom,email,pass) VALUES (?,?,?,?)');
         $req->execute(array($nom,$prenom,$email,$mdp_hache));
-        header('Location:?action=accueil');
+        
     }
 }

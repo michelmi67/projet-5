@@ -9,8 +9,7 @@ class CommentManager extends Manager
         $req = $db->prepare('INSERT INTO commentaire (id_page,auteur,message,signaler,moderer) VALUES (?,?,?,?,?)');
         $req->execute(array($_GET['texte'],$_POST['pseudo'],$_POST['commentaire'],$signaler,$moderer));
         $req->CloseCursor();
-    
-    }
+       }
 
     public function recup_commentaires($id)
     {
@@ -29,7 +28,8 @@ class CommentManager extends Manager
     public function recup_all_commentaire_signaler() 
     {
         $db = $this->dbConnect();
-        $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr FROM commentaire  WHERE signaler = \'true\'
+        $all_commentaire_signaler = $db->query('SELECT id,id_page,auteur,message,signaler,moderer,DATE_FORMAT(date_creation,\' %d/%m/%Y \') AS date_creation_fr 
+        FROM commentaire  WHERE signaler = \'true\'
         ORDER BY date_creation');
         return $all_commentaire_signaler;
     }

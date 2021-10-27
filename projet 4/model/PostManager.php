@@ -6,7 +6,8 @@ class PostManager extends Manager
     public function recup_3_derniers_articles()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id,titre,texte FROM (SELECT id,titre,texte, DATE_FORMAT(date_creation,\' %d/%m/%Y \') FROM article ORDER BY id DESC LIMIT 0,3 ) AS date_creation_fr ORDER BY id ASC');
+        $req = $db->query('SELECT id,titre,texte FROM (SELECT id,titre,texte, DATE_FORMAT(date_creation,\' %d/%m/%Y \') FROM article ORDER BY id DESC LIMIT 0,3 )
+        AS date_creation_fr ORDER BY id ASC');
         $articles = [];
         while($row = $req->fetch())
         {
