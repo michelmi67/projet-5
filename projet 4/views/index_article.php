@@ -12,7 +12,7 @@
         <div class = "container">
             <!--Inclusion du header -->
             <?php include('include/header.php'); ?>
-            <h1>L'ange du passé</h1>
+            <h1>Billet simple pour l'Alaska</h1>
             <?php 
                 foreach($all_articles as $article)
                 {

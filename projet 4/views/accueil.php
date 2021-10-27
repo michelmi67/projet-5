@@ -39,7 +39,7 @@
                 <p>Il se tourne vers un public adulte à partir de 2012 en publiant le roman social Une place à prendre, puis en entamant une série policière l'année suivante,
                     sous un second nom de plume. Il devient également scénariste pour le cinéma à partir de 2016 en étendant son univers sorcier à travers la série de films Les
                     Animaux fantastiquess, dont le premier volet a connu un succès international.</p>
-                <h2>Les trois derniers articles du roman : L'Ange du passé.</h2>
+                <h2>Les trois derniers articles du roman : Billet simple pour l'Alaska.</h2>
             </article>
         
             <!--Les 3 derniers articles du roman-->
