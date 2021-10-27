@@ -34,8 +34,11 @@ function article()
     //de base un commenatire n'est ni signalé ni modérer
     if($_POST){
         $signaler = "false";
-        $moderer = "false";  
-        $commenter = $commentManager->envoi_commentaire($signaler,$moderer);
+        $moderer = "false";
+        $texte =  $_GET['texte'];
+        $pseudo = $_POST['pseudo'];
+        $commentaire = $_POST['commentaire'];
+        $commenter = $commentManager->envoi_commentaire($signaler,$moderer,$texte,$pseudo,$commentaire);
     }
     $all_commentaires = $commentManager->recup_commentaires($id);
     
@@ -115,6 +118,7 @@ function modif_article()
     //si il y a déjà des données dans la base de données
     if($modifier_titre != null){
         //on modifie le titre et le texte de l'article
+        //$modifier_titre = $_POST['modif_titre'];
         $titre_modifier = $postManager->modif_titre($id,$modifier_titre);
         $texte_modifier = $postManager->modif_texte($id,$modifier_texte);
         header('Location:?action=recup_article');
@@ -141,8 +145,10 @@ function recup_commentaire_admin(){
 function moderer_commentaire()
 {
     $id = $_GET['commentaire'];
+    $signaler = "false";
+    $moderer = "true";
     $commentManager = new CommentManager();
-    $commentaire_moderer = $commentManager->moderation_commentaire($id);
+    $commentaire_moderer = $commentManager->moderation_commentaire($id,$signaler,$moderer);
     header('Location:?action=recup_commentaire');
 }
 
@@ -159,7 +165,8 @@ function signaler()
 {
     $id = $_GET['commentaire'];
     $commentManager = new CommentManager();
-    $signaler = $commentManager->signaler_commentaire($id);
+    $signaler = "true";
+    $signaler = $commentManager->signaler_commentaire($id,$signaler);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     require('views/article.php');
 }
@@ -240,11 +247,12 @@ function enregistrement_admin()
 
             //Puis on créer un nouveau admin
             $admin = $userManager->enregistrement($nom,$prenom,$email,$mdp_hache);
+            header('Location:?action=accueil');   
         }
         else
         {
             $message_erreur =  'Les mots de passe ne sont pas identiques';
-        }   
+        }
     }
     require('views/enregistrement_admin.php');
 }

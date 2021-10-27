@@ -80,7 +80,6 @@ class PostManager extends Manager
     public function modif_titre($id,$modifier_titre)
     {
         $db = $this->dbConnect();
-        $modifier_titre = $_POST['modif_titre'];
         $titre_modifier = $db->prepare('UPDATE article SET titre = ? WHERE id = ?');
         $titre_modifier->execute(array($modifier_titre,$id));                   
     }

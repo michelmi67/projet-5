@@ -3,11 +3,11 @@ require_once("model/Manager.php");
 
 class CommentManager extends Manager
 {
-    function envoi_commentaire($signaler,$moderer)
+    function envoi_commentaire($signaler,$moderer,$texte,$pseudo,$commentaire)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO commentaire (id_page,auteur,message,signaler,moderer) VALUES (?,?,?,?,?)');
-        $req->execute(array($_GET['texte'],$_POST['pseudo'],$_POST['commentaire'],$signaler,$moderer));
+        $req->execute(array($texte,$pseudo,$commentaire,$signaler,$moderer));
         $req->CloseCursor();
        }
 
@@ -42,11 +42,9 @@ class CommentManager extends Manager
         return $all_commentaire;
     }
 
-    public function moderation_commentaire($id)
+    public function moderation_commentaire($id,$signaler,$moderer)
     {
         $db = $this->dbConnect();
-        $signaler = "false";
-        $moderer = "true";
         $id = $_GET['commentaire'];
         $req = $db->prepare('UPDATE commentaire SET signaler = ?, moderer = ? WHERE id = ?');
         $req->execute(array($signaler,$moderer,$id));  
@@ -59,10 +57,9 @@ class CommentManager extends Manager
         $req->execute(array($id));   
     }
 
-    public function signaler_commentaire($id)
+    public function signaler_commentaire($id,$signaler)
     {
         $db = $this->dbConnect();
-        $signaler = "true";
         $req = $db->prepare('UPDATE commentaire SET signaler = ? WHERE id = ? ');
         $req->execute(array($signaler,$id)); 
     }
