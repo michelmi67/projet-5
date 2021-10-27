@@ -165,17 +165,12 @@ i{
     @media (max-width: 576px) {
 
         /*Page accueil*/
-        #titre,#texte{
-            display: none;
-        }
-
         .accueil table{
             border: none;
         }
 
         .accueil tr td{
             display: block;
-            
         }
 
         .accueil .texte{
