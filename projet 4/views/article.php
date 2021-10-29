@@ -66,7 +66,10 @@
                             </tr>
                             <tr>
                                 <td class = "i">
-                                    <a href = "?action=signaler&commentaire=<?php echo $commentaire['id'] ?>"><i class="fas fa-exclamation-triangle"></i></a>
+                                    <div class = "signaler">
+                                        <a href = "?action=signaler&commentaire=<?php echo $commentaire['id'] ?>"><i class="fas fa-exclamation-triangle"></i></a>
+                                        <p>signaler<p>
+                                    </div>
                                 </td>
                             </tr>
                         </table>

@@ -127,6 +127,20 @@ i{
     text-align: end;
 }
 
+.signaler{
+    width: 50px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 90%;
+}
+
+.article .signaler p{
+    opacity: 0;
+}
+
+.article .signaler:hover p{
+    opacity: 1;
+}
 .article i{
     color: red;
 }
