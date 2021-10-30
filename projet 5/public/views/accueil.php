@@ -6,5 +6,7 @@
     </head>
     <!--inclusion du header-->
     <?php require('include/header.html'); ?>
-    <h1>Hello world 2 !</h1>
+    <!--inclusion de la barre de navigation-->
+    <?php require('include/nav.html'); ?>
+    
 </html>

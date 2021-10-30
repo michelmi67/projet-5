@@ -1,5 +1,58 @@
-h1 {
-  color: blue;
+@font-face {
+  font-family: "awesome_possum_demoshine";
+  src: url("font/awesome_possum_shine_demo-webfont.woff2") format("woff2"), url("font/awesome_possum_shine_demo-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.logo {
+  display: flex;
+  background-color: deepskyblue;
+}
+
+.logo img {
+  width: 500px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+h1, .connexion a {
+  color: #63d640;
+  text-shadow: white 1px 1px 1px;
+}
+
+.connexion {
+  margin-left: 1000px;
+  margin-top: 50px;
+}
+
+.connexion img {
+  width: 100px;
+  height: 100px;
+}
+
+.connexion a {
+  display: block;
+  font-size: 1.2rem;
+}
+
+nav {
+  float: left;
+  width: 260px;
+  height: 1500px;
+  background-color: deepskyblue;
+}
+
+nav p {
+  font-weight: 900;
+  font-size: 1.8em;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 0;
+  text-shadow: white 1px 1px 1px;
+}
+
+span {
+  color: yellow;
 }
 
 /*# sourceMappingURL=styles.css.map */

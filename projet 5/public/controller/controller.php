@@ -7,4 +7,8 @@ class Controller
     {
         require('views/accueil.php');
     }
+
+    public function connexion(){
+        require('views/connexion.php');
+    }
 }
