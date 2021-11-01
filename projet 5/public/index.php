@@ -14,6 +14,11 @@ if(isset($_GET['action']))
         
         $controller->connexion();
     }
+    elseif($_GET['action'] == 'inscription')
+    {
+        
+        $controller->inscription();
+    }
 }
 else
 {
