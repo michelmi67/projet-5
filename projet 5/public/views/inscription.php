@@ -18,11 +18,15 @@
             <label for = "pass_enfant">Mot de passe </label><input type = "password" name = "pass_enfant" id = "pass_enfant" required/><br>
             <label for = "pass_verification_enfant">Vérification du mot de passe </label><input type = "password" name = "pass_verification_enfant" id = "pass_verification_enfant" required/><br>
             <button class ="btn btn-primary" type = "submit" >envoyer</button>
-            <?php 
-                if(isset($erreur)){
+            <?php
+                //Message d'erreur si le représentant légale n'as pas mis une bonne date de naissance 
+                if(isset($erreur))
+                {
                     echo $erreur;  
                 }
-                if(isset($message_erreur)){
+                //Message d'erreur si les 2 mots de passe ne sont pas les mêmes
+                if(isset($message_erreur))
+                {
                     echo $message_erreur;
                 }
             ?>
