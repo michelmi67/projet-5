@@ -4,6 +4,10 @@
   font-weight: normal;
   font-style: normal;
 }
+body {
+  font-family: "awesome_possum_shine_demo-webfont";
+}
+
 .logo {
   display: flex;
   background-color: deepskyblue;
@@ -32,17 +36,38 @@ h1, .connexion a {
 
 .connexion a {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-nav {
+.navbar {
+  background-color: yellow;
+  font-family: "awesome_possum_shine_demo-webfont";
+}
+
+.navbar a {
+  background-color: red;
+  width: 150px;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.navbar a:hover {
+  background-color: greenyellow;
+  text-shadow: white 1px 1px 1px;
+}
+
+.nav_left {
   float: left;
   width: 260px;
   height: 1500px;
   background-color: deepskyblue;
 }
 
-nav p {
+.nav_left p {
   font-weight: 900;
   font-size: 1.8em;
   margin-top: 50px;
@@ -51,8 +76,29 @@ nav p {
   text-shadow: white 1px 1px 1px;
 }
 
-span {
+.nav_left span {
   color: yellow;
+}
+
+.nav_left .span2 {
+  color: red;
+}
+
+.connexion_enfant h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.connexion_enfant form {
+  margin-left: 40%;
+}
+
+.connexion_enfant label {
+  margin-right: 30px;
+}
+
+.connexion_enfant article, .connexion_enfant h2 {
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
