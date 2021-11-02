@@ -2,10 +2,10 @@
 <html lang = "fr">
     <head>
         <!--inclusion du head-->
-        <?php require('include/head.html'); ?>
+        <?php require('include/head.php'); ?>
     </head>
     <!--inclusion du header-->
-    <?php require('include/header.html'); ?>
+    <?php require('include/header.php'); ?>
     <body class = "inscription">
         <h1>Inscription</h1>
         <form method = "post" action = "#">
