@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['pseudo_enfant'])){
+if(!isset($_SESSION['id'])){
     header('Location:?action=accueil');
 }
 ?>
@@ -12,4 +12,6 @@ if(!isset($_SESSION['pseudo_enfant'])){
         <?php require('include/head.php'); ?>
     </head>
     <!--inclusion du header-->
-    <?php require('include/header.php'); 
+    <?php require('include/header.php');
+    
+    
