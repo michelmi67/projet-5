@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="?action=accueil">Accueil <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">vidéos<span class="sr-only">(current)</a>
-        <a class="nav-item nav-link" href="#">dessins<span class="sr-only">(current)</a>
+        <a class="nav-item nav-link" href="?action=video">vidéos<span class="sr-only">(current)</a>
+        <a class="nav-item nav-link" href="?action=dessin">dessins<span class="sr-only">(current)</a>
         <a class="nav-item nav-link" href="#">livres<span class="sr-only">(current)</a>
       </div>
     </div>
