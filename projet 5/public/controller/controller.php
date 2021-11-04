@@ -4,6 +4,10 @@ include('model/UserManager.php');
 
 class Controller
 {
+    public function bienvenu()
+    {
+        require('views/bienvenu.php');
+    }
     public function accueil()
     {
         require('views/accueil.php');
@@ -112,5 +116,13 @@ class Controller
         $userManager = new UserManager();
         $profil = $userManager->recup_id();
         require("views/profil.php");    
+    }
+
+    public function video(){
+        require('views/video.php');
+    }
+
+    public function dessin(){
+        require('views/dessin.php');
     }
 }
