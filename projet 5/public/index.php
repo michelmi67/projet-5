@@ -5,7 +5,11 @@ $controller = new Controller;
 
 if(isset($_GET['action']))
 {
-    if ($_GET['action'] == 'accueil') 
+    if ($_GET['action'] == 'bienvenu') 
+    {
+        $controller->bienvenu();
+    }
+    elseif ($_GET['action'] == 'accueil') 
     {
         $controller->accueil();
     }
@@ -25,6 +29,15 @@ if(isset($_GET['action']))
     {
         $controller->profil();
     }
+    elseif($_GET['action'] == 'video')
+    {
+        $controller->video();
+    }
+    elseif($_GET['action'] == 'dessin')
+    {
+        $controller->dessin();
+    }
+
 }
 else
 {
