@@ -32,7 +32,7 @@ class Controller
     {   
         $userManager = new UserManager();
         $pseudo = $userManager->connexion($pseudo_connexion,$pass_connexion);
-        $pass_correct = password_verify($pass_connexion,$pseudo['pass_enfant']);
+        $pass_correct = password_verify($pass_connexion,$pseudo['pass']);
         //si le pseudo n'éxiste pas
         if(!$pseudo)
         {
@@ -44,8 +44,9 @@ class Controller
             //Si le mot de passe est correct on fait la connexion
             if($pass_correct)
             {
-                $_SESSION['pseudo_enfant'] = $pseudo['pseudo_enfant'];
-                $_SESSION['rang'] = $pseudo['pseudo_enfant'];
+                $_SESSION['id'] = $pseudo['id'];
+                $_SESSION['pseudo'] = $pseudo['pseudo'];
+                $_SESSION['rang'] = $pseudo['rang'];
                 header('Location:?action=accueil');     
             }
             else
@@ -69,20 +70,20 @@ class Controller
         $date_naissance = new DateTime($_POST['date_naissance']);
         if($date_naissance >= $date_18)
         {
-            //le visiteur a PAS encore 18 ans
+            //le visiteur n'as pas encore 18 ans
             $erreur = "<br><br><br><p>".'L\'age de ton résponsable légal n\'est pas valide ! '."</p>";
         }
         else
         {
-            //Inscription d'un enfant
+            //Inscription d'un urilisateur
             //Instanciation et protection des données
-            $nom = htmlspecialchars($_POST['nom_enfant']) ;
-            $prenom = htmlspecialchars($_POST['prenom_enfant']);
-            $date_naissance = $_POST['date_naissance_enfant'];
-            $pseudo = htmlspecialchars($_POST['pseudo_enfant']);
-            $email = htmlspecialchars($_POST['email_parent']);
-            $mdp = htmlspecialchars($_POST['pass_enfant']);
-            $mdp_verification = htmlspecialchars($_POST['pass_verification_enfant']);
+            $nom = htmlspecialchars($_POST['nom']) ;
+            $prenom = htmlspecialchars($_POST['prenom']);
+            $date_naissance = $_POST['date_naissance'];
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $email = htmlspecialchars($_POST['email']);
+            $mdp = htmlspecialchars($_POST['pass']);
+            $mdp_verification = htmlspecialchars($_POST['pass_verification']);
             $rang = 3;
        
             //Si les deux mots de passe renseignés sont les mêmes
@@ -114,7 +115,6 @@ class Controller
 
     public function profil(){
         $userManager = new UserManager();
-        $profil = $userManager->recup_id();
         require("views/profil.php");    
     }
 
