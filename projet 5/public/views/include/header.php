@@ -8,7 +8,7 @@
                 if(isset($_SESSION) AND $_SESSION != null):
                 ?>    
                 <ul>
-                    <li class = "menu_li"><a href = "?action=profil&pseudo=<?php echo $_SESSION['pseudo_enfant'];?>">Profil</a></li>
+                    <li class = "menu_li"><a href = "?action=profil&id=<?php echo $_SESSION['id'];?>">Profil</a></li>
                     <li class = "menu_li"><a href = "?action=deconnexion">déconnexion</a></li>
                 </ul>
                 <?php
