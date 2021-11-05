@@ -1,6 +1,7 @@
 <?php
-include('model/Manager.php');
-include('model/UserManager.php');
+require_once('model/Manager.php');
+require_once('model/User_manager.php');
+require_once('model/Post_manager.php');
 
 class Controller
 {
@@ -10,6 +11,8 @@ class Controller
     }
     public function accueil()
     {
+        $post_manager = new Post_Manager();
+        $articles = $post_manager->recup_post();
         require('views/accueil.php');
     }
 
@@ -30,7 +33,7 @@ class Controller
     // si des données sont dans la base de donnée
     if($pseudo_connexion != null)
     {   
-        $userManager = new UserManager();
+        $userManager = new User_Manager();
         $pseudo = $userManager->connexion($pseudo_connexion,$pass_connexion);
         $pass_correct = password_verify($pass_connexion,$pseudo['pass']);
         //si le pseudo n'éxiste pas
@@ -59,7 +62,7 @@ class Controller
     }
 
     public function inscription(){
-    $userManager = new UserManager();
+    $userManager = new User_Manager();
     if($_POST){
         //Vérification de l'age du representant légal qui inscrit son enfant
         // date d'aujourd'hui
@@ -106,7 +109,7 @@ class Controller
     }
 
     public function deconnexion(){
-        $userManager = new UserManager();
+        
         session_start();
         $_SESSION = array();
         session_destroy();
@@ -114,7 +117,15 @@ class Controller
     }
 
     public function profil(){
-        $userManager = new UserManager();
+        if($_POST)
+        {   
+            $pseudo = $_GET['pseudo'];
+            $post_manager = new Post_Manager();
+            $message = $_POST['message'];
+            $post_manager->envoi_post($pseudo,$message);
+            header('Location:?action=accueil');
+            $articles = $post_manager->recup_post_profil($pseudo);
+        }
         require("views/profil.php");    
     }
 
