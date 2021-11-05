@@ -30,7 +30,6 @@ h1, .btn_connexion a {
   right: 10px;
   top: -50px;
 }
-
 .btn_connexion img {
   width: 100px;
   height: 100px;
@@ -71,7 +70,6 @@ h1, .btn_connexion a {
   font-family: "awesome_possum_shine_demo-webfont";
   width: 700px;
 }
-
 .navbar a {
   background-color: red;
   width: 150px;
@@ -82,7 +80,6 @@ h1, .btn_connexion a {
   border-radius: 20px;
   margin-left: 10px;
 }
-
 .navbar a:hover {
   background-color: greenyellow;
   text-shadow: white 1px 1px 1px;
@@ -139,6 +136,33 @@ h1, .btn_connexion a {
 
 .inscription input {
   margin-left: 10px;
+}
+
+.tinymce {
+  margin-left: 500px;
+  margin-top: 50px;
+}
+
+.accueil_h2 {
+  margin-top: 30px;
+  margin-left: 300px;
+}
+
+.article {
+  margin-left: 500px;
+  margin-top: 30px;
+  width: 1000px;
+}
+.article .pseudo {
+  background-color: skyblue;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-shadow: 5px 5px 5px white;
+}
+.article img {
+  width: 800px;
+  min-height: 400px;
 }
 
 .dessin_anime {

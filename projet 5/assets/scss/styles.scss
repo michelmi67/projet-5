@@ -34,12 +34,12 @@ h1, .btn_connexion a{
     position: absolute;
     right: 10px;
     top: -50px;
-}
-.btn_connexion img{
+
+    img{
     width: 100px;
     height: 100px;
+    }
 }
-
 .btn_connexion:hover{
     background-color:purple;
     border-radius: 15px;
@@ -78,9 +78,7 @@ h1, .btn_connexion a{
     font-family: "awesome_possum_shine_demo-webfont";
     width: 700px;
     
-}
-  
-.navbar a{
+    a{
     background-color: red;
     width: 150px;
     padding: 10px 20px;
@@ -89,13 +87,13 @@ h1, .btn_connexion a{
     font-size: 20px;
     border-radius: 20px;
     margin-left: 10px;    
-}
+    }
 
-.navbar a:hover{
+    a:hover{
         background-color: greenyellow;
         text-shadow: white 1px 1px 1px;
-}
-   
+    }
+}   
 //nav_left//
 .nav_left{
     float: left;
@@ -148,6 +146,35 @@ h1, .btn_connexion a{
 
 .inscription input{
     margin-left: 10px;
+}
+
+//Page profil
+.tinymce{
+    margin-left: 500px;
+    margin-top: 50px;
+}
+
+//Page accueil
+.accueil_h2{
+    margin-top: 30px;
+    margin-left: 300px;
+}
+
+.article{
+    margin-left:500px;
+    margin-top: 30px;
+    width: 1000px;
+    .pseudo{
+        background-color: skyblue;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-shadow: 5px 5px 5px white;
+    }
+    img{
+        width: 800px;
+        min-height: 400px;
+    }
 }
 
 //Page video
