@@ -1,7 +1,7 @@
 <?php
 require('controller/controller.php');
 
-$controller = new Controller; 
+$controller = new Controller;
 
 if(isset($_GET['action']))
 {
@@ -28,6 +28,7 @@ if(isset($_GET['action']))
     elseif($_GET['action'] == 'profil')
     {
         $controller->profil();
+        
     }
     elseif($_GET['action'] == 'video')
     {
