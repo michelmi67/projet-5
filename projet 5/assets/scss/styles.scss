@@ -11,6 +11,10 @@ body{
     font-family: 'awesome_possum_shine_demo-webfont';
 }
 
+h2{
+    color: slateblue;
+}
+
 //header//
 .logo {
     display: flex;
@@ -119,6 +123,32 @@ h1, .btn_connexion a{
 .nav_left .span2{
     color: red;
 }
+//nav_admin
+.nav_admin{
+    display: flex;
+    a{
+        margin-left: 10px;
+    }
+}
+
+//Page Utilisateur
+.utilisateur h1{
+    margin-left: 300px;
+    margin-top: 30px;
+}
+table{
+    border: 1px solid black;
+    margin-left: 200px;
+    margin-top: 30px;
+    td{
+        border: 1px solid black;
+        width: 150px;
+        text-align: center;
+        i{
+            padding: 10px;
+        }
+    }
+}
 
 //Page connexion //
 .connexion h1{
@@ -188,15 +218,150 @@ iframe{
 }
 
 //Page dessin
-.canvas{
+.dessin h2{
     margin-left: 300px;
     margin-top: 30px;
-    width: 100%;
-    height: 100%;
+}
+.canvas_couleur{
+    display: flex;
+    width: 1100px;
+    margin-top: 30px;
+    .couleur{
+        width: 200px;
+        height: 450px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .noir{
+            background-color: black;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .jaune{
+            background-color: yellow;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .rouge{
+            background-color: red;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .bleu{
+            background-color: blue;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .vert{
+            background-color: green;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .rose{
+            background-color: pink;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .gris{
+            background-color: grey;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .blanc{
+            background-color: white;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .violet{
+            background-color: violet;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .orange{
+            background-color: orange;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .turquoise{
+            background-color:turquoise;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .brun{
+            background-color:brown;
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        
+        
 }
 
+.dessin button{
+        margin-left: 300px;
+}
 canvas{
     
     border: solid 2px black;
     margin-left: 300px;
+}
+
+.coloriage{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 300px;
+    background-color:lightcoral;
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 1350px;
+    border-radius: 15px;
+    .dessin_coloriage{
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+//Page_article
+.page_article form{
+    margin-left: 500px;
+    margin-top: 50px;
 }

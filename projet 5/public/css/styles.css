@@ -8,6 +8,10 @@ body {
   font-family: "awesome_possum_shine_demo-webfont";
 }
 
+h2 {
+  color: slateblue;
+}
+
 .logo {
   display: flex;
   background-color: deepskyblue;
@@ -109,6 +113,32 @@ h1, .btn_connexion a {
   color: red;
 }
 
+.nav_admin {
+  display: flex;
+}
+.nav_admin a {
+  margin-left: 10px;
+}
+
+.utilisateur h1 {
+  margin-left: 300px;
+  margin-top: 30px;
+}
+
+table {
+  border: 1px solid black;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+table td {
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+}
+table td i {
+  padding: 10px;
+}
+
 .connexion h1 {
   text-align: center;
   margin-bottom: 50px;
@@ -174,16 +204,150 @@ iframe {
   margin-right: 20px;
 }
 
-.canvas {
+.dessin h2 {
   margin-left: 300px;
   margin-top: 30px;
-  width: 100%;
-  height: 100%;
+}
+
+.canvas_couleur {
+  display: flex;
+  width: 1100px;
+  margin-top: 30px;
+}
+.canvas_couleur .couleur {
+  width: 200px;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.canvas_couleur .noir {
+  background-color: black;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .jaune {
+  background-color: yellow;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .rouge {
+  background-color: red;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .bleu {
+  background-color: blue;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .vert {
+  background-color: green;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .rose {
+  background-color: pink;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .gris {
+  background-color: grey;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .blanc {
+  background-color: white;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .violet {
+  background-color: violet;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .orange {
+  background-color: orange;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .turquoise {
+  background-color: turquoise;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.canvas_couleur .brun {
+  background-color: brown;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.dessin button {
+  margin-left: 300px;
 }
 
 canvas {
   border: solid 2px black;
   margin-left: 300px;
+}
+
+.coloriage {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 300px;
+  background-color: lightcoral;
+  padding-top: 30px;
+  padding-left: 30px;
+  width: 1350px;
+  border-radius: 15px;
+}
+.coloriage .dessin_coloriage {
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+.coloriage img {
+  width: 300px;
+  height: 300px;
+}
+
+.page_article form {
+  margin-left: 500px;
+  margin-top: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */
