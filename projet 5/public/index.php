@@ -30,6 +30,11 @@ if(isset($_GET['action']))
         $controller->profil();
         
     }
+    elseif($_GET['action'] == 'utilisateur')
+    {
+        $controller->utilisateur();
+        
+    }
     elseif($_GET['action'] == 'video')
     {
         $controller->video();
@@ -37,6 +42,10 @@ if(isset($_GET['action']))
     elseif($_GET['action'] == 'dessin')
     {
         $controller->dessin();
+    }
+    elseif($_GET['action'] == 'article')
+    {
+        $controller->article();
     }
 
 }
