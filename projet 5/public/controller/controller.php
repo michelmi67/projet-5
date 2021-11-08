@@ -2,6 +2,7 @@
 require_once('model/Manager.php');
 require_once('model/User_manager.php');
 require_once('model/Post_manager.php');
+require_once('model/Comment_manager.php');
 
 class Controller
 {
@@ -12,7 +13,7 @@ class Controller
     public function accueil()
     {
         $post_manager = new Post_Manager();
-        $articles = $post_manager->recup_post();
+        $articles = $post_manager->recup_posts();
         require('views/accueil.php');
     }
 
@@ -64,46 +65,33 @@ class Controller
     public function inscription(){
     $userManager = new User_Manager();
     if($_POST){
-        //Vérification de l'age du representant légal qui inscrit son enfant
-        // date d'aujourd'hui
-        $date = new DateTime();
-        // date - 18 ans
-        $date_18 = $date->sub(new DateInterval('P18Y'));
-        // si $_POST['date_naissance'] est au format date par exemple = 2001-12-25
-        $date_naissance = new DateTime($_POST['date_naissance']);
-        if($date_naissance >= $date_18)
+        //Inscription d'un utilisateur
+        
+        //Instanciation et protection des données
+        $nom = htmlspecialchars($_POST['nom']) ;
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $date_naissance = $_POST['date_naissance'];
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $email = htmlspecialchars($_POST['email']);
+        $mdp = htmlspecialchars($_POST['pass']);
+        $mdp_verification = htmlspecialchars($_POST['pass_verification']);
+        $rang = 3;
+    
+        //Si les deux mots de passe renseignés sont les mêmes
+        if($mdp === $mdp_verification)
         {
-            //le visiteur n'as pas encore 18 ans
-            $erreur = "<br><br><br><p>".'L\'age de ton résponsable légal n\'est pas valide ! '."</p>";
+            //on hache le mot de passe
+            $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
+
+            //Puis on créer un nouvel enfant
+            $enfant = $userManager->enregistrement($nom,$prenom,$date_naissance,$pseudo,$email,$mdp_hache,$rang);
+            header('Location:?action=accueil');   
         }
         else
         {
-            //Inscription d'un urilisateur
-            //Instanciation et protection des données
-            $nom = htmlspecialchars($_POST['nom']) ;
-            $prenom = htmlspecialchars($_POST['prenom']);
-            $date_naissance = $_POST['date_naissance'];
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $email = htmlspecialchars($_POST['email']);
-            $mdp = htmlspecialchars($_POST['pass']);
-            $mdp_verification = htmlspecialchars($_POST['pass_verification']);
-            $rang = 3;
-       
-            //Si les deux mots de passe renseignés sont les mêmes
-            if($mdp === $mdp_verification)
-            {
-                //on hache le mot de passe
-                $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
-    
-                //Puis on créer un nouvel enfant
-                $enfant = $userManager->enregistrement($nom,$prenom,$date_naissance,$pseudo,$email,$mdp_hache,$rang);
-                header('Location:?action=accueil');   
-            }
-            else
-            {
-                $message_erreur = "<p>". 'Les mots de passe ne sont pas identiques !'."</p>";
-            }
+            $message_erreur = "<p>". 'Les mots de passe ne sont pas identiques !'."</p>";
         }
+        
     }
     require('views/inscription.php');
     }
@@ -129,11 +117,35 @@ class Controller
         require("views/profil.php");    
     }
 
+    public function utilisateur(){
+        $userManager = new User_Manager();
+        $utilisateurs = $userManager->recup_utilisateur();
+        /*$admin = $userManager->admin();*/
+        require('views/utilisateur.php');
+    }
+
     public function video(){
         require('views/video.php');
     }
 
     public function dessin(){
         require('views/dessin.php');
+    }
+
+    public function article()
+    {
+        $post_manager = new Post_Manager();
+        $comment_manager = new Comment_Manager();
+        $id = $_GET['article_id'];
+        $article = $post_manager->recup_post($id);
+        if($_POST)
+        {
+            $signaler = 'false';
+            $auteur = "michel";
+            $message = $_POST['message'];
+            $comments = $comment_manager->insert_comment($id,$auteur,$message,$signaler);
+
+        }
+        require('views/article.php');
     }
 }
