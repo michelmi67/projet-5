@@ -46,7 +46,7 @@
             <i id="play" class="fas fa-play-circle"></i>
 
         </div>
-      <script src = "js/CarouselObjet.js" ></script>
+      <!--<script src = "js/CarouselObjet.js" ></script>-->
       <script src = "js/main.js"></script>
     </body> 
     
