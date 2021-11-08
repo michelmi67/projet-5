@@ -1,3 +1,12 @@
+<?php
+
+   session_start();
+   
+   if(!$_SESSION){
+       header('Location:?action=bienvenu');
+   }
+?>
+
 <!DOCTYPE HTML>
 <html lang = "fr">
     <head>
