@@ -10,10 +10,10 @@ class Post_Manager extends Manager
         $req->execute(array($pseudo,$message));
     }
 
-    public function recup_post()
+    public function recup_posts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT pseudo,message,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article ORDER BY date_creation DESC');
+        $req = $db->query('SELECT id,pseudo,message,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article ORDER BY date_creation DESC');
         $articles = [];
         while($row = $req->fetch())
         {
@@ -36,4 +36,14 @@ class Post_Manager extends Manager
         $req->CloseCursor();
         return $articles;
     }
+
+    public function recup_post($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id,pseudo,message,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article WHERE id = ? ORDER BY date_creation DESC');
+        $req->execute(array($id));
+        $article = $req->fetch();
+        return $article; 
+    }
+
 }
