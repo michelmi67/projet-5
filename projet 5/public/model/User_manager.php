@@ -34,11 +34,17 @@ class User_Manager extends Manager
         return $utilisateurs;
     }
 
-    /*public function admin()
+    public function rang($rang,$pseudo)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE utilisateur SET rang = ?');
-        $req->execute(array($_SESSION ='1'));
+        $req = $db->prepare('UPDATE utilisateur SET rang = ? WHERE pseudo = ?');
+        $req->execute(array($rang,$pseudo));
+    }
 
-    }*/
+    public function delete_user($pseudo)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM utilisateur WHERE pseudo = ?');
+        $req->execute(array($pseudo));
+    }
 }
