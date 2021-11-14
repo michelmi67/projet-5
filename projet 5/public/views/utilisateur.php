@@ -43,10 +43,10 @@ if($_SESSION['rang'] !=='1'){
                             <td><?php echo $utilisateur['email'];?></td>
                             <td><?php echo $utilisateur['rang'];?></td>
                             <td>
-                                <i class="fas fa-lock-open"></i>
-                                <i class="fas fa-unlock"></i>
-                                <i class="fas fa-lock"></i>
-                                <i class="fas fa-times"></i>
+                                <a href = "?action=creer_admin&pseudo=<?php echo $utilisateur['pseudo']; ?>"><i class="fas fa-lock-open"></i></a>
+                                <a href= "?action=creer_moderateur&pseudo=<?php echo $utilisateur['pseudo']; ?>"><i class="fas fa-unlock"></i></a>
+                                <a href = "?action=creer_utilisateur&pseudo=<?php echo $utilisateur['pseudo']; ?>"><i class="fas fa-lock"></i></a>
+                                <a href = "?action=suprime_utilisateur&pseudo=<?php echo $utilisateur['pseudo']; ?>"><i class="fas fa-times"></i></a>
                             </td>
                             <td><?php echo $utilisateur['date_creation_fr'];?></td>
                         </tr>    
