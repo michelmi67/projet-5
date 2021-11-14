@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if(!$_SESSION){
     header('Location:?action=bienvenu');
@@ -17,31 +16,41 @@ if(!$_SESSION){
     <script src="https://cdn.tiny.cloud/1/03puxw65ydbv9n6fvxcaqfxnd9h3hk5c1hjm1afabuf62exq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <body class = "profil">
         <?php
-        if($_SESSION['rang']=== "1"){
+        if($_SESSION['rang'] === "1")
+        {
             ?>
-            <div class="nav_admin">
-                <a href = "?action=utilisateur"><div class = "button">Utilisateur</div></a>
-                <a href = "?action=message"><div class = "button">message</div><a>
-                <a href = "?action=commentaire"><div class = "button">commentaire</div></a>
+            <div class= "nav_admin">
+                <a href = "?action=utilisateur"><div class = "button">Utilisateurs</div></a>
+                <a href = "?action=messages"><div class = "button">messages</div><a>
+                <a href = "?action=commentaire"><div class = "button">commentaires</div></a>
             </div>
             <?php
+        }
+        elseif($_SESSION['rang'] === "2")
+        {
+            ?>
+            <div class= "nav_moderateur">
+                <a href = "?action=messages"><div class = "button">messages</div><a>
+                <a href = "?action=commentaire"><div class = "button">commentaires</div></a>
+            </div>
+        <?php 
         } 
         ?>
         <div class="tinymce">
             <h2>Creer un message ou insert une image</h2>
-            <form method = "post" action = "?action=profil&pseudo= <?php echo $_GET['pseudo']; ?>">
+            <form method = "post" action = "?action=profil";>
                 <textarea name = "message" placeholder = "insert un texte ou une image"></textarea>
                 <button class = "btn-primary" type = "submit">envoyer</button>
             </form>
         </div>
         <article>
             <?php
-            foreach($articles as $article)
+            foreach($articles_profil as $article)
             {
                 ?>
                 <div class = "article">
                     <p class = "pseudo"><?php  echo $article['pseudo'], ' le ' ,  $article['date_creation_fr']; ?></p> 
-                    <?php echo $article['message'] ?>;
+                    <?php echo $article['message']; ?>
                 </div>
                 <?php
             }
