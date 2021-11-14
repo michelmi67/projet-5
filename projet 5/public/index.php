@@ -27,13 +27,11 @@ if(isset($_GET['action']))
     }
     elseif($_GET['action'] == 'profil')
     {
-        $controller->profil();
-        
+        $controller->profil();    
     }
     elseif($_GET['action'] == 'utilisateur')
     {
-        $controller->utilisateur();
-        
+        $controller->utilisateur();    
     }
     elseif($_GET['action'] == 'video')
     {
@@ -46,6 +44,38 @@ if(isset($_GET['action']))
     elseif($_GET['action'] == 'article')
     {
         $controller->article();
+    }
+    elseif($_GET['action'] == 'creer_admin')
+    {
+        $controller->creer_admin();
+    }
+    elseif($_GET['action'] == 'creer_moderateur')
+    {
+        $controller->creer_moderateur();
+    }
+    elseif($_GET['action'] == 'creer_utilisateur')
+    {
+        $controller->creer_utilisateur();
+    }
+    elseif($_GET['action'] == 'suprime_utilisateur')
+    {
+        $controller->suprime_utilisateur();
+    }
+    elseif($_GET['action'] == 'messages')
+    {
+        $controller->messages();
+    }
+    elseif($_GET['action'] == 'signal_comment')
+    {
+        $controller->signal_comment();
+    }
+    elseif($_GET['action'] == 'suprime_article')
+    {
+        $controller->suprime_article();
+    }
+    elseif($_GET['action'] == 'signal_article_user')
+    {
+        $controller->signal_article_user();
     }
 
 }
