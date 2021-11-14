@@ -113,10 +113,10 @@ h1, .btn_connexion a {
   color: red;
 }
 
-.nav_admin {
+.nav_admin, .nav_moderateur {
   display: flex;
 }
-.nav_admin a {
+.nav_admin a, .nav_moderateur a {
   margin-left: 10px;
 }
 
@@ -125,18 +125,47 @@ h1, .btn_connexion a {
   margin-top: 30px;
 }
 
-table {
+.utilisateur table {
   border: 1px solid black;
   margin-left: 200px;
   margin-top: 30px;
 }
-table td {
+.utilisateur table td {
   border: 1px solid black;
   width: 150px;
   text-align: center;
 }
-table td i {
+.utilisateur table td i {
   padding: 10px;
+}
+
+.message h1 {
+  margin-left: 300px;
+  margin-top: 30px;
+  margin: 0;
+  text-align: center;
+}
+.message h2 {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.message table {
+  border: 1px solid black;
+  margin-top: 30px;
+  margin-left: 200px;
+}
+.message table td {
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+}
+.message table td i {
+  padding: 10px;
+}
+.message table td img {
+  max-width: 800px;
+  max-height: 650px;
 }
 
 .connexion h1 {
@@ -178,6 +207,10 @@ table td i {
   margin-left: 300px;
 }
 
+.accueil p {
+  font-weight: bold;
+}
+
 .article {
   margin-left: 500px;
   margin-top: 30px;
@@ -195,7 +228,16 @@ table td i {
   min-height: 400px;
 }
 
-.dessin_anime {
+.accueil i {
+  margin-left: 10px;
+}
+
+.video h2 {
+  margin-left: 300px;
+  margin-top: 30px;
+}
+
+.dessin_anime, .reportage {
   margin-left: 300px;
   margin-top: 30px;
 }
@@ -220,97 +262,56 @@ iframe {
   display: flex;
   flex-wrap: wrap;
 }
-.canvas_couleur .noir {
-  background-color: black;
-  border: 1px solid black;
+.canvas_couleur .noir, .canvas_couleur .jaune, .canvas_couleur .rouge, .canvas_couleur .bleu, .canvas_couleur .vert, .canvas_couleur .rose, .canvas_couleur .gris, .canvas_couleur .blanc, .canvas_couleur .violet, .canvas_couleur .orange, .canvas_couleur .turquoise, .canvas_couleur .brun {
   height: 20px;
   width: 20px;
   margin-top: 30px;
   margin-left: 30px;
+  border: 1px solid black;
+}
+.canvas_couleur .noir {
+  background-color: black;
 }
 .canvas_couleur .jaune {
   background-color: yellow;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .rouge {
   background-color: red;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .bleu {
   background-color: blue;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .vert {
   background-color: green;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .rose {
   background-color: pink;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .gris {
   background-color: grey;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .blanc {
   background-color: white;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .violet {
   background-color: violet;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .orange {
   background-color: orange;
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 .canvas_couleur .turquoise {
   background-color: turquoise;
-  border: 1px solid black;
+}
+.canvas_couleur .brun {
+  background-color: brown;
+}
+.canvas_couleur .stylo {
   height: 20px;
   width: 20px;
   margin-top: 30px;
   margin-left: 30px;
 }
-.canvas_couleur .brun {
-  background-color: brown;
-  border: 1px solid black;
+.canvas_couleur .gomme {
   height: 20px;
   width: 20px;
   margin-top: 30px;
@@ -348,6 +349,23 @@ canvas {
 .page_article form {
   margin-left: 500px;
   margin-top: 50px;
+}
+
+.page_article .commentaire {
+  margin-left: 500px;
+  margin-top: 30px;
+  width: 1000px;
+}
+.page_article .commentaire .pseudo {
+  background-color: lightcoral;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-shadow: 5px 5px 5px white;
+}
+.page_article .commentaire .i {
+  display: flex;
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */
