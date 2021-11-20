@@ -23,7 +23,7 @@ class User_Manager extends Manager
     public function recup_utilisateur()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id,nom,prenom,DATE_FORMAT(date_naissance,"%d/%m/%Y") AS date_naissance_fr,pseudo,email,rang,
+        $req = $db->query('SELECT id,nom,prenom,pseudo,DATE_FORMAT(date_naissance,"%d/%m/%Y") AS date_naissance_fr,pseudo,email,rang,
         DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM utilisateur');
         $utilisateurs = [];
         while($row = $req->fetch())
@@ -46,5 +46,14 @@ class User_Manager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM utilisateur WHERE pseudo = ?');
         $req->execute(array($pseudo));
+    }
+
+    public function recup_pseudo($pseudo)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT pseudo FROM utilisateur WHERE pseudo = ?');
+        $req->execute(array($pseudo));
+        $utilisateur = $req->fetch();
+        return $utilisateur;
     }
 }
