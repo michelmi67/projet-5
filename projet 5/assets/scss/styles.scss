@@ -15,6 +15,10 @@ h2{
     color: slateblue;
 }
 
+h3{
+    color: orangered;
+}
+
 //header//
 .logo {
     display: flex;
@@ -128,6 +132,12 @@ h1, .btn_connexion a{
     display: flex;
     a{
         margin-left: 10px;
+        padding: 10px;
+        background-color: blueviolet;
+        border-radius: 0 0 15px 15px;
+        color: black;
+        font-weight: bold;
+
     }
 }
 
@@ -150,8 +160,8 @@ h1, .btn_connexion a{
     }
 }
 
-//page message
-.message {
+//page message et page commentaire
+.message,.commentaire {
     h1{
     margin-left: 300px;
     margin-top: 30px;
@@ -164,20 +174,23 @@ h1, .btn_connexion a{
     }
 }
 
-.message table{
+.message table,.commmentaire table{
     border: 1px solid black;
     margin-top: 30px;
-    margin-left: 200px;
+    margin-left: 250px;
     td{
         border: 1px solid black;
-        width: 150px;
         text-align: center;
+        min-width: 100px;
+        max-width: 800px;
+        max-height: 200px;
         i{
             padding: 10px;
         }
         img{
             max-width: 800px;
             max-height: 650px;
+            max-height: 200px;
         }
     }
 }
@@ -387,5 +400,41 @@ canvas{
     .i{
         display: flex;
         margin-right: 15px;
+    }
+   a{
+       margin-left: 15px;
+   }
+}
+
+//Page jeux
+.jeux h2{
+    margin-left: 300px;
+    margin-top: 30px;
+}
+
+.shifoumi{
+    margin-left: 300px;
+    margin-top: 50px;
+    button{
+        width: 75px;
+        height: 75px;
+        margin-right: 30px;
+    }
+    #puit{
+        background-color: transparent;
+        border: none;
+    }
+    &active{
+        border: none;
+    }
+    #puit i{
+        color: transparent;
+    }
+    i{
+        font-size: 50px;
+        color: blueviolet;
+    }
+    .resultat{
+        font-size: 50px;
     }
 }
