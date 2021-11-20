@@ -77,6 +77,26 @@ if(isset($_GET['action']))
     {
         $controller->signal_article_user();
     }
+    elseif($_GET['action'] == 'moderer_article')
+    {
+        $controller->moderer_article();
+    }
+    elseif($_GET['action'] == 'commentaire')
+    {
+        $controller->commentaire();
+    }
+    elseif($_GET['action'] == 'suprime_comment')
+    {
+        $controller->suprime_comment();
+    }
+    elseif($_GET['action'] == 'moderer_comment')
+    {
+        $controller->moderer_comment();
+    }
+    elseif($_GET['action'] == 'jeux')
+    {
+        $controller->jeux();
+    }
 
 }
 else
