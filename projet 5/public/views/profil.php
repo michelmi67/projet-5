@@ -10,32 +10,29 @@ if(!$_SESSION){
     <head>
         <!--inclusion du head-->
         <?php require('include/head.php'); ?>
+        <!--fontawesome-->
+        <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
+        <!--tinymce--> 
+        <script src="https://cdn.tiny.cloud/1/03puxw65ydbv9n6fvxcaqfxnd9h3hk5c1hjm1afabuf62exq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
-    <!--inclusion du header-->
-    <?php require('include/header.php'); ?>
-    <script src="https://cdn.tiny.cloud/1/03puxw65ydbv9n6fvxcaqfxnd9h3hk5c1hjm1afabuf62exq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <header>
+        <!--inclusion du header-->
+        <?php require('include/header.php'); ?>
+    </header>
+    <?php
+    //inclusion de la barre de navigation gauche pour les utilisateurs
+    if($_SESSION['rang'] == '3')
+    {
+        require('include/nav_left.php');
+    }
+    //inclusion de la barre de navigation
+    require('include/nav.php');
+    //inclusion de la barre de navigation admin
+    require('include/nav_admin.php');
+    //inclusion de la barre de navigation modérateur
+    require('include/nav_moderateur.php');
+    ?>
     <body class = "profil">
-        <?php
-        if($_SESSION['rang'] === "1")
-        {
-            ?>
-            <div class= "nav_admin">
-                <a href = "?action=utilisateur"><div class = "button">Utilisateurs</div></a>
-                <a href = "?action=messages"><div class = "button">messages</div><a>
-                <a href = "?action=commentaire"><div class = "button">commentaires</div></a>
-            </div>
-            <?php
-        }
-        elseif($_SESSION['rang'] === "2")
-        {
-            ?>
-            <div class= "nav_moderateur">
-                <a href = "?action=messages"><div class = "button">messages</div><a>
-                <a href = "?action=commentaire"><div class = "button">commentaires</div></a>
-            </div>
-        <?php 
-        } 
-        ?>
         <div class="tinymce">
             <h2>Creer un message ou insert une image</h2>
             <form method = "post" action = "?action=profil";>
@@ -51,6 +48,7 @@ if(!$_SESSION){
                 <div class = "article">
                     <p class = "pseudo"><?php  echo $article['pseudo'], ' le ' ,  $article['date_creation_fr']; ?></p> 
                     <?php echo $article['message']; ?>
+                    <a href = "?action=suprime_article&id=<?php echo $article['id']; ?>"><i class="fas fa-times"></i>supprimer</a>
                 </div>
                 <?php
             }

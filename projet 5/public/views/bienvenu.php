@@ -3,11 +3,13 @@
     <head>
         <!--inclusion du head-->
         <?php require('include/head.php');?>
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <!--inclusion du header-->
-    <?php require('include/header.php');?>
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
+    <header>
+        <!--inclusion du header-->
+        <?php require('include/header.php');?>
+    </header>
     <body>
     <div class="carousel">
             <div class="slide">

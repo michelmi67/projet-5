@@ -10,13 +10,22 @@ if(!$_SESSION){
     <head>
         <!--inclusion du head-->
         <?php require('include/head.php'); ?>
+        <!--fontawesome-->
+        <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <!--inclusion du header-->
-    <?php require('include/header.php'); 
+    <header>
+        <!--inclusion du header-->
+        <?php require('include/header.php'); ?> 
+    </header>
+    <?php
     //inclusion de la barre de navigation gauche
      require('include/nav_left.php'); 
     //inclusion de la barre de navigation
     require('include/nav.php');
+    //inclusion de la barre de navigation admin
+    require('include/nav_admin.php');
+    //inclusion de la barre de navigation modérateur
+    require('include/nav_moderateur.php');
     ?>
     <body class = "dessin">
         <h2>Fais ton dessin !</h2>
@@ -37,6 +46,8 @@ if(!$_SESSION){
                 <div class="orange"></div>
                 <div class="turquoise"></div>
                 <div class="brun"></div>
+                <div class="stylo"><i class="fas fa-pen"></i></div>
+                <div class="gomme"><i class="fas fa-eraser"></i></div>
             </div>
         </div>    
         <button type="button" class="btn btn-secondary" id ="bt-clear">effacer</button>
@@ -81,6 +92,6 @@ if(!$_SESSION){
         </div>                      
 
         <script src = "js/CanvasObjet.js"></script>
-        <script src = "js/main.js"></script>
+        <script src = "js/main_dessin.js"></script>
     </body>   
 </html>

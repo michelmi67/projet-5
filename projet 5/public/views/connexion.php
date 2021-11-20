@@ -4,8 +4,10 @@
         <?php include('include/head.php')?>
     </head>
     <body class = "connexion">
-        <!--Inclusion du header -->
-        <?php include('include/header.php'); ?>    
+        <header>
+            <!--Inclusion du header -->
+            <?php include('include/header.php'); ?> 
+        </header>   
         <h1>connexion</h1>
         <!--Formulaire d'inscription pour un admin -->
         <form method = "post" action = "?action=connexion">

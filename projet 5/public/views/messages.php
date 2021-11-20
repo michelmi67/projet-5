@@ -11,13 +11,23 @@ elseif($_SESSION['rang'] == '3'){
     <head>
         <!--inclusion du head-->
         <?php require('include/head.php');?>
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <!--inclusion du header-->
-    <?php require('include/header.php');?>
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
+    <header>
+        <!--inclusion du header-->
+        <?php require('include/header.php');?>
+    </header>
+    <?php
+    //inclusion de la barre de navigation
+    require('include/nav.php');
+    //inclusion de la barre de navigation admin
+    require('include/nav_admin.php');
+    //inclusion de la barre de navigation modérateur
+    require('include/nav_moderateur.php');
+    ?>
     <body class = "message">
-    <h1>Message</h1>
+    <h1>Articles</h1>
 
     <!-- Article signalé -->
     <h2>Articles signalés</h2>
@@ -35,20 +45,21 @@ elseif($_SESSION['rang'] == '3'){
             <tbody>
                 <?php
                 
-                foreach($articles_signalés as $article_signalé)
+                foreach($articles_signales as $article_signale)
                 {
+                    
                     ?>
                     <tr>
-                        <td><?php echo $article_signalé['id'];?></td>
-                        <td><?php echo $article_signalé['pseudo'];?></td>
-                        <td><?php echo $article_signalé['message'];?></td>
-                        <td><?php echo $article_signalé['signaler'];?></td>
+                        <td><?php echo $article_signale['id'];?></td>
+                        <td><?php echo $article_signale['pseudo'];?></td>
+                        <td><?php echo $article_signale['message'] ;?></td>
+                        <td><?php echo $article_signale['signaler'];?></td>
                         <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-smile-wink"></i>
-                            <a href = "?action=suprime_article&id=<?php echo $article_signalé['id']; ?>"><i class="fas fa-times"></i></a>
+                            <a href = "?action=accueil&#article_<?php echo $article_signale['id']; ?>"><i class="far fa-eye"></i></a>
+                            <a href = "?action=moderer_article&id=<?php echo $article_signale['id']; ?>"><i class="far fa-smile-wink"></i></a>
+                            <a href = "?action=suprime_article&id=<?php echo $article_signale['id']; ?>"><i class="fas fa-times"></i></a>
                         </td>
-                        <td><?php echo $article_signalé['date_creation_fr'];?></td>
+                        <td><?php echo $article_signale['date_creation_fr'];?></td>
                     </tr>    
                     <?php
                 }
@@ -82,9 +93,8 @@ elseif($_SESSION['rang'] == '3'){
                             <td><?php echo $article['message'];?></td>
                             <td><?php echo $article['signaler'];?></td>
                             <td>
-                                <i class="far fa-eye"></i>
-                                <i class="far fa-smile-wink"></i>
-                                <i class="fas fa-times"></i>
+                                <a href = "?action=accueil&#article_<?php echo $article['id']; ?>"><i class="far fa-eye"></i></a>
+                                <a href = "?action=suprime_article&id=<?php echo $article['id']; ?>"><i class="fas fa-times"></i></a>
                             </td>
                             <td><?php echo $article['date_creation_fr'];?></td>
                         </tr>    
