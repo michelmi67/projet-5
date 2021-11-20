@@ -7,7 +7,7 @@
         <a class="nav-item nav-link active" href="?action=accueil">Accueil <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="?action=video">vidéos<span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="?action=dessin">dessins<span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Jeux<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="?action=jeux">Jeux<span class="sr-only">(current)</span></a>
       </div>
     </div>
   </nav>
