@@ -4,8 +4,10 @@
         <!--inclusion du head-->
         <?php require('include/head.php'); ?>
     </head>
-    <!--inclusion du header-->
-    <?php require('include/header.php'); ?>
+    <header>
+        <!--inclusion du header-->
+        <?php require('include/header.php'); ?>
+    </header>
     <body class = "inscription">
         <h1>Inscription</h1>
         <form method = "post" action = "?action=inscription">
@@ -19,6 +21,12 @@
             <button class ="btn btn-primary" type = "submit" >envoyer</button>
             <?php
                 
+                //si le pseudo existe déjà
+                if(isset($erreur))
+                {
+                    echo $erreur;
+                }
+
                 //Message d'erreur si les 2 mots de passe ne sont pas les mêmes
                 if(isset($message_erreur))
                 {
