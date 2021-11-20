@@ -69,33 +69,45 @@ class Controller
     public function inscription(){
     $userManager = new User_Manager();
     if($_POST){
-        
-        //Instanciation des variables et protection des données
-        $nom = htmlspecialchars($_POST['nom']) ;
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $date_naissance = $_POST['date_naissance'];
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        $email = htmlspecialchars($_POST['email']);
-        $mdp = htmlspecialchars($_POST['pass']);
-        $mdp_verification = htmlspecialchars($_POST['pass_verification']);
-        $rang = 3;
-    
-        //Si les deux mots de passe renseignés sont les mêmes
-        if($mdp === $mdp_verification)
-        {
-            //on hache le mot de passe
-            $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
 
-            //Puis on créer un nouvel utilisateur
-            $utilasteur = $userManager->enregistrement($nom,$prenom,$date_naissance,$pseudo,$email,$mdp_hache,$rang);
-            header('Location:?action=accueil');   
+        //Vérification si un pseudo existe dans la base de donnée
+        $pseudo = $_POST['pseudo'];
+        $utilisateur = $userManager->recup_pseudo($pseudo);
+
+        //si le peudo n'éxiste pas dansla base de donnée
+        if($utilisateur)
+        {
+            $erreur = "<p>" . 'le pseudo existe déjà ! veuillez choisir un autre pseudo'."</p>";
         }
         else
         {
-            $message_erreur = "<p>". 'Les mots de passe ne sont pas identiques !'."</p>";
-        }
+            //Instanciation des variables et protection des données
+            $nom = htmlspecialchars($_POST['nom']) ;
+            $prenom = htmlspecialchars($_POST['prenom']);
+            $date_naissance = $_POST['date_naissance'];
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $email = htmlspecialchars($_POST['email']);
+            $mdp = htmlspecialchars($_POST['pass']);
+            $mdp_verification = htmlspecialchars($_POST['pass_verification']);
+            $rang = 3;
         
-    }
+            //Si les deux mots de passe renseignés sont les mêmes
+            if($mdp === $mdp_verification)
+            {
+                //on hache le mot de passe
+                $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
+    
+                //Puis on créer un nouvel utilisateur
+                $utilasteur = $userManager->enregistrement($nom,$prenom,$date_naissance,$pseudo,$email,$mdp_hache,$rang);
+                header('Location:?action=accueil');   
+            }
+            else
+            {
+                $message_erreur = "<p>". 'Les mots de passe ne sont pas identiques !'."</p>";
+            }
+        }
+
+    }   
     require('views/inscription.php');
     }
 
@@ -112,6 +124,7 @@ class Controller
         session_start();
         $post_manager = new Post_Manager();
         $pseudo = $_SESSION['pseudo'];
+        $utilisateur = $_SESSION['id'];
         $signaler = 'false';
         //recupération des articles dans profil
         $articles_profil = $post_manager->recup_posts_profil($pseudo);
@@ -119,7 +132,7 @@ class Controller
         {   
             $message = $_POST['message'];
             //envoi d'un article dans la page accueil
-            $post_manager->envoi_post($pseudo,$message,$signaler);
+            $post_manager->envoi_post($utilisateur,$pseudo,$message,$signaler);
             header('Location:?action=accueil');    
         }
         require("views/profil.php");    
@@ -194,9 +207,10 @@ class Controller
         if($_POST)
         {
             $auteur = $_SESSION['pseudo'];
+            $utilisateur = $_SESSION['id'];
             $message = $_POST['commentaire'];
             $signaler = 'false';
-            $comment_manager->insert_comment($id,$auteur,$message,$signaler);
+            $comment_manager->insert_comment($id,$utilisateur,$auteur,$message,$signaler);
             
         }
 
@@ -211,7 +225,7 @@ class Controller
     {
         $comment_manager = new Comment_Manager();
         $signaler = 'true';
-        $id = $_POST['commentaire'];
+        $id = $_GET['id'];
         $comment_manager->signaler_commentaire($signaler,$id);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
@@ -223,20 +237,21 @@ class Controller
         $signaler = 'false';
         $articles = $post_manager->recup_all_posts($signaler);
         $signaler = 'true';
-        $articles_signalés = $post_manager->recup_all_posts_signalés($signaler);
+        $articles_signales = $post_manager->recup_all_posts_signales($signaler);
         require('views/messages.php');
     }
 
-    //supression d'un article 
+    //supression d'un article et de ses commentaires
     public function suprime_article()
     {
+        //supression d'un article
         $post_manager = new Post_Manager();
         $id = $_GET['id'];
         $post_manager->delete_article($id);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    //Signalement d'un article dans la page d'accueil
+    //Signalement d'un article 
     public function signal_article_user()
     {
         $post_manager = new Post_Manager();
@@ -244,6 +259,50 @@ class Controller
         $id = $_GET['id'];
         $post_manager->signaler_article_utilisateur($signaler,$id);
         header('Location:?action=accueil');
+    }
+
+    //Modérer un article
+    public function moderer_article()
+    {
+        $post_manager = new Post_Manager();
+        $signaler = 'false';
+        $id = $_GET['id'];
+        $post_manager->moderer($signaler,$id);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    //Récupération des commentaires signalés et non signalés
+    public function commentaire()
+    {
+        $comment_manager = new Comment_Manager();
+        $signaler = 'true';
+        $commentaires_signales = $comment_manager->recup_comments_signales($signaler);
+        $signaler = 'false';
+        $commentaires = $comment_manager->recup_comments_non_signales($signaler);
+        require('views/commentaire.php');
+    }
+
+    //Supréssion d'un commentaire
+    public function suprime_comment()
+    {
+        $comment_manager = new Comment_Manager();
+        $id = $_GET['id'];
+        $comment_manager->delete_comment($id);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    //Modéré un commentaire
+    public function moderer_comment(){
+        $comment_manager = new Comment_Manager();
+        $signaler = 'false';
+        $id = $_GET['id'];
+        $comment_manager->moderer($signaler,$id);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    public function jeux()
+    {
+        require('views/jeux.php');
     }
 
 }
