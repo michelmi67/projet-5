@@ -3,11 +3,11 @@ require_once("model/Manager.php");
 
 class Post_Manager extends Manager
 {
-    public function envoi_post($pseudo,$message,$signaler)
+    public function envoi_post($utilisateur,$pseudo,$message,$signaler)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO article (pseudo,message,signaler) VALUES (?,?,?)');
-        $req->execute(array($pseudo,$message,$signaler));
+        $req = $db->prepare('INSERT INTO article (id_utilisateur,pseudo,message,signaler) VALUES (?,?,?,?)');
+        $req->execute(array($utilisateur,$pseudo,$message,$signaler));
     }
 
     public function recup_posts()
@@ -26,7 +26,7 @@ class Post_Manager extends Manager
     public function recup_posts_profil($pseudo)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT pseudo,message,signaler,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article WHERE pseudo = ? ORDER BY date_creation DESC');
+        $req = $db->prepare('SELECT id,pseudo,message,signaler,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article WHERE pseudo = ? ORDER BY date_creation DESC');
         $req->execute(array($pseudo));
         $articles_profil = [];
         while($row = $req->fetch())
@@ -60,18 +60,18 @@ class Post_Manager extends Manager
         return $articles;
     }
 
-    public function recup_all_posts_signalés($signaler)
+    public function recup_all_posts_signales($signaler)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id,pseudo,message,signaler,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article WHERE signaler = ? ORDER BY date_creation DESC');
         $req->execute(array($signaler));
-        $articles_signalés = [];
+        $articles_signales = [];
         while($row = $req->fetch())
         {
-            $articles_signalés[] = $row;
+            $articles_signales[] = $row;
         }
         $req->CloseCursor();
-        return $articles_signalés;
+        return $articles_signales;
     }
 
     public function delete_article($id)
@@ -86,5 +86,13 @@ class Post_Manager extends Manager
         $req = $db->prepare('UPDATE article SET signaler = ? WHERE id = ?');
         $req->execute(array($signaler,$id));
     }
+
+    public function moderer($signaler,$id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE article SET signaler = ? WHERE id = ?');
+        $req->execute(array($signaler,$id));
+    }
+
 
 }
