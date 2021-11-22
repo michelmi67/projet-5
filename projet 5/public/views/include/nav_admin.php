@@ -1,6 +1,5 @@
 <?php
-if($_SESSION['rang'] === "1")
-{
+if($_SESSION['rang'] === "1"):
     ?>
     <div class= "nav_admin">
         <a href = "?action=utilisateur"><div class = "button">Utilisateurs</div></a>
@@ -8,5 +7,5 @@ if($_SESSION['rang'] === "1")
         <a href = "?action=commentaire"><div class = "button">commentaires</div></a>
     </div>
     <?php
-}
+endif;
 ?>
