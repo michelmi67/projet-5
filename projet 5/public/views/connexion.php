@@ -18,9 +18,9 @@
             </p>
         </form>
         <?php 
-        if(isset($message_erreur)){
+        if(isset($message_erreur)):
             echo $message_erreur;
-        }
+        endif;
         ?>
         <article>
             <p>Si tu n'es pas encore inscrit, demande à un de tes parents ou un représentant légale de faire l'inscription avec toi <a href ="?action=inscription">ici</a> !</p>

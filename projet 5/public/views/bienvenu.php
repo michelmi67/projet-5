@@ -6,12 +6,12 @@
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <header>
-        <!--inclusion du header-->
-        <?php require('include/header.php');?>
-    </header>
     <body>
-    <div class="carousel">
+        <header>
+            <!--inclusion du header-->
+            <?php require('include/header.php');?>
+        </header>
+        <div class="carousel">
             <div class="slide">
                 <div class="slide_container">
                     <div class="row">
@@ -50,5 +50,6 @@
         </div>
       <!--<script src = "js/CarouselObjet.js" ></script>-->
       <script src = "js/main.js"></script>
-    </body> 
+    </body>
+</html> 
     

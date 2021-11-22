@@ -1,7 +1,7 @@
 <?php session_start();
-if($_SESSION['rang'] !=='1'){
+if($_SESSION['rang'] !=='1'):
     header('Location:?action=bienvenu');
-}
+endif;
 ?>
 <!DOCTYPE HTML>
 <html lang = "fr">
@@ -11,20 +11,20 @@ if($_SESSION['rang'] !=='1'){
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <header>
-        <!--inclusion du header-->
-        <?php require('include/header.php');?>
-    </header>
-    <?php
-    //inclusion de la barre de navigation
-    require('include/nav.php');
-    //inclusion de la barre de navigation admin
-    require('include/nav_admin.php');
-    //inclusion de la barre de navigation modérateur
-    require('include/nav_moderateur.php');
-    ?>
     <body class = "utilisateur">
-    <h1>Utilisateur</h1>
+        <header>
+            <!--inclusion du header-->
+            <?php require('include/header.php');?>
+        </header>
+        <?php
+        //inclusion de la barre de navigation
+        require('include/nav.php');
+        //inclusion de la barre de navigation admin
+        require('include/nav_admin.php');
+        //inclusion de la barre de navigation modérateur
+        require('include/nav_moderateur.php');
+        ?>
+        <h1>Utilisateur</h1>
             <table>
                 <thead>
                     <tr>
@@ -41,8 +41,7 @@ if($_SESSION['rang'] !=='1'){
                 </thead>
                 <tbody>
                     <?php
-                    foreach($utilisateurs as $utilisateur)
-                    {
+                    foreach($utilisateurs as $utilisateur):
                         ?>
                         <tr>
                             <td><?php echo $utilisateur['id'];?></td>
@@ -61,8 +60,7 @@ if($_SESSION['rang'] !=='1'){
                             <td><?php echo $utilisateur['date_creation_fr'];?></td>
                         </tr>    
                         <?php
-                    }
-                    
+                    endforeach;
                     ?>
                 </tbody>
             </table>

@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!$_SESSION){
+if(!$_SESSION):
     header('Location:?action=bienvenu');
-}
+endif;
 ?>
 <!DOCTYPE HTML>
 <html lang = "fr">
@@ -13,21 +13,21 @@ if(!$_SESSION){
         <!--fontawesome-->
         <script src="https://kit.fontawesome.com/2e63600e57.js" crossorigin="anonymous"></script>
     </head>
-    <header>
-        <!--inclusion du header-->
-        <?php require('include/header.php'); ?> 
-    </header>
-    <?php
-    //inclusion de la barre de navigation gauche
-     require('include/nav_left.php'); 
-    //inclusion de la barre de navigation
-    require('include/nav.php');
-    //inclusion de la barre de navigation admin
-    require('include/nav_admin.php');
-    //inclusion de la barre de navigation modérateur
-    require('include/nav_moderateur.php');
-    ?>
     <body class = "dessin">
+        <header>
+            <!--inclusion du header-->
+            <?php require('include/header.php'); ?> 
+        </header>
+        <?php
+        //inclusion de la barre de navigation gauche
+        require('include/nav_left.php'); 
+        //inclusion de la barre de navigation
+        require('include/nav.php');
+        //inclusion de la barre de navigation admin
+        require('include/nav_admin.php');
+        //inclusion de la barre de navigation modérateur
+        require('include/nav_moderateur.php');
+        ?>
         <h2>Fais ton dessin !</h2>
         <div class="canvas_couleur">
             <div class = "canvas">

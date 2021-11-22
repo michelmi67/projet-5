@@ -4,11 +4,11 @@
         <!--inclusion du head-->
         <?php require('include/head.php'); ?>
     </head>
-    <header>
-        <!--inclusion du header-->
-        <?php require('include/header.php'); ?>
-    </header>
     <body class = "inscription">
+        <header>
+            <!--inclusion du header-->
+            <?php require('include/header.php'); ?>
+        </header>
         <h1>Inscription</h1>
         <form method = "post" action = "?action=inscription">
             <label for = nom>Nom</label><input type = "text" name = "nom" id = "nom" required><br>
@@ -22,16 +22,14 @@
             <?php
                 
                 //si le pseudo existe déjà
-                if(isset($erreur))
-                {
+                if(isset($erreur)):
                     echo $erreur;
-                }
+                endif;
 
                 //Message d'erreur si les 2 mots de passe ne sont pas les mêmes
-                if(isset($message_erreur))
-                {
+                if(isset($message_erreur)):
                     echo $message_erreur;
-                }
+                endif;
             ?>
         </form> 
     </body>
