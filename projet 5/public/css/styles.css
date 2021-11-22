@@ -223,6 +223,22 @@ h1, .btn_connexion a {
   font-weight: bold;
 }
 
+.pere_noel {
+  margin-top: 30px;
+  width: 100%;
+}
+.pere_noel img {
+  animation: rigth-to-left 15s linear infinite;
+}
+
+@keyframes rigth-to-left {
+  0% {
+    transform: translateX(1300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .article {
   margin-left: 500px;
   margin-top: 30px;
@@ -401,9 +417,6 @@ canvas {
   background-color: transparent;
   border: none;
 }
-.shifoumiactive {
-  border: none;
-}
 .shifoumi #puit i {
   color: transparent;
 }
@@ -413,6 +426,11 @@ canvas {
 }
 .shifoumi .resultat {
   font-size: 50px;
+}
+
+.casse_brique {
+  margin-left: 300px;
+  margin-top: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */
