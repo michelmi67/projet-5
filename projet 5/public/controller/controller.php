@@ -11,11 +11,23 @@ class Controller
         require('views/bienvenu.php');
     }
 
-    //récupération des  articles sur la page accueil
+    //récupération des  articles sur la page accueil et pagination
     public function accueil()
     {
         $post_manager = new Post_Manager();
-        $articles = $post_manager->recup_posts();
+        
+        //nombre d'article
+        $nb_articles = $post_manager->compte_articles();
+        
+        //pagination
+        $page = $_GET['page'];
+        $nb_elements_par_page = 6;
+        $nb_de_page = ceil($nb_articles["cpt"]/$nb_elements_par_page);
+        $debut = ($page-1) * $nb_elements_par_page;
+        
+        //récupération des articles
+        $articles = $post_manager->recup_posts($debut,$nb_elements_par_page);
+        //header('Location:?action=accueil&page=1');
         require('views/accueil.php');
     }
 
@@ -28,47 +40,57 @@ class Controller
     $message_erreur = null;
 
     // si il existe des données envoyé
-    if(isset($_POST['pseudo_connexion'])):
+    if(isset($_POST['pseudo_connexion']))
+    {
         $pseudo_connexion = htmlspecialchars($_POST['pseudo_connexion']);
         $pass_connexion = htmlspecialchars($_POST['pass_connexion']);
-    endif;
+    }
 
     // si des données sont dans la base de donnée
-    if($pseudo_connexion != null):
+    if($pseudo_connexion != null){
         $userManager = new User_Manager();
         $pseudo = $userManager->connexion($pseudo_connexion,$pass_connexion);
         $pass_correct = password_verify($pass_connexion,$pseudo['pass']);
         //si le pseudo n'éxiste pas
-        if(!$pseudo):
+        if(!$pseudo)
+        {
         $message_erreur = "<p>". 'mauvais identifiant ou mot de passe !' ."</p>";
-        else :
+        }
+        else 
+        {
             //Si le mot de passe est correct on fait la connexion
-            if($pass_correct) :
+            if($pass_correct) 
+            {
                 $_SESSION['id'] = $pseudo['id'];
                 $_SESSION['pseudo'] = $pseudo['pseudo'];
                 $_SESSION['rang'] = $pseudo['rang'];
-                header('Location:?action=accueil');     
-            else :
+                header('Location:?action=accueil&page=1');
+            }         
+            else 
+            {
                 $message_erreur =  'mauvais identifiant ou mot de passe !';
-            endif;
-        endif;
-    endif;
+            }
+        }
+    }
     require('views/connexion.php');
     }
 
     //inscription d'un nouvel utilisateur par défaut rang 3 (utilisateur)
     public function inscription(){
     $userManager = new User_Manager();
-    if($_POST):
-
+    if($_POST)
+    {
         //Vérification si un pseudo existe dans la base de donnée
         $pseudo = $_POST['pseudo'];
         $utilisateur = $userManager->recup_pseudo($pseudo);
 
         //si le peudo n'éxiste pas dansla base de donnée
-        if($utilisateur):
+        if($utilisateur)
+        {
             $erreur = "<p>" . 'le pseudo existe déjà ! veuillez choisir un autre pseudo'."</p>";
-        else:
+        }    
+        else
+        {
             //Instanciation des variables et protection des données
             $nom = htmlspecialchars($_POST['nom']) ;
             $prenom = htmlspecialchars($_POST['prenom']);
@@ -80,18 +102,21 @@ class Controller
             $rang = 3;
         
             //Si les deux mots de passe renseignés sont les mêmes
-            if($mdp === $mdp_verification):
+            if($mdp === $mdp_verification)
+            {
                 //on hache le mot de passe
                 $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
     
                 //Puis on créer un nouvel utilisateur
                 $utilasteur = $userManager->enregistrement($nom,$prenom,$date_naissance,$pseudo,$email,$mdp_hache,$rang);
-                header('Location:?action=accueil');   
-            else:
+                header('Location:?action=bienvenu');
+            }   
+            else
+            {
                 $message_erreur = "<p>". 'Les mots de passe ne sont pas identiques !'."</p>";
-            endif;
-        endif;
-    endif;   
+            }
+        }
+    }   
     require('views/inscription.php');
     }
 
@@ -101,7 +126,7 @@ class Controller
         session_start();
         $_SESSION = array();
         session_destroy();
-        header('Location:?action=accueil');    
+        header('Location:?action=bienvenu');    
     }
 
     public function profil(){
@@ -112,12 +137,13 @@ class Controller
         $signaler = 'false';
         //recupération des articles dans profil
         $articles_profil = $post_manager->recup_posts_profil($pseudo);
-        if($_POST):
+        if($_POST)
+        {
             $message = $_POST['message'];
             //envoi d'un article dans la page accueil
             $post_manager->envoi_post($utilisateur,$pseudo,$message,$signaler);
-            header('Location:?action=accueil');    
-        endif;
+            header('Location:?action=accueil&page=1');    
+        }
         require("views/profil.php");    
     }
 
@@ -187,13 +213,14 @@ class Controller
         $article = $post_manager->recup_post($id);
         
         //Inserer un commmentaire
-        if($_POST):
+        if($_POST)
+        {
             $auteur = $_SESSION['pseudo'];
             $utilisateur = $_SESSION['id'];
             $message = $_POST['commentaire'];
             $signaler = 'false';
             $comment_manager->insert_comment($id,$utilisateur,$auteur,$message,$signaler);
-        endif;
+        }
 
         //récupération des commentaires
         $commentaires = $comment_manager->recup_comments($id);
@@ -239,7 +266,7 @@ class Controller
         $signaler = "true";
         $id = $_GET['id'];
         $post_manager->signaler_article_utilisateur($signaler,$id);
-        header('Location:?action=accueil');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     //Modérer un article

@@ -10,10 +10,10 @@ class Post_Manager extends Manager
         $req->execute(array($utilisateur,$pseudo,$message,$signaler));
     }
 
-    public function recup_posts()
+    public function recup_posts($debut,$nb_elements_par_page)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id,pseudo,message,signaler,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article ORDER BY date_creation DESC');
+        $req = $db->query('SELECT id,pseudo,message,signaler,DATE_FORMAT(date_creation,"%d/%m/%Y") AS date_creation_fr FROM article ORDER BY date_creation DESC LIMIT '.$debut.','.$nb_elements_par_page);
         $articles = [];
         while($row = $req->fetch())
         {
@@ -94,5 +94,12 @@ class Post_Manager extends Manager
         $req->execute(array($signaler,$id));
     }
 
+    public function compte_articles()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT COUNT(id) AS cpt FROM article');
+        $nb_articles = $req->fetch();
+        return $nb_articles;
+    }
 
 }
