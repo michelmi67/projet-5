@@ -236,19 +236,193 @@ h1, .btn_connexion a{
     margin-left: 300px;
 }
 
-.accueil p{
+.pokemon_h3{
+    margin-top: 30px;
+    margin-left: 500px;
+}
+
+.accueil p, span{
     font-weight: bold;
 }
 
 .pere_noel{
-    
     margin-top: 30px;
-    width: 100%;
-    img{
-        
-        animation:rigth-to-left 15s linear infinite;
+    width: 85%;
+    margin-left: 270px;
+    position: relative;
+    background-color: black;
+   
+}
+  
+.snow {
+  
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom:0;
+overflow:hidden;
+  
+}
+  
+.snow__layer {
+  
+position: absolute;
+left: -100px;
+right: -100px;
+-webkit-animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+        animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+-webkit-perspective: 100px;
+        perspective: 100px;
+-webkit-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+        transform: translateX(-50px);
+  
+}
+  
+.snow__fall {
+  
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 2000px;
+background: url(http://projet2-office-du-tourisme-ireki.com/wp-content/image/snow-light.png);
+-webkit-animation: fall 10s linear infinite;
+        animation: fall 10s linear infinite;
+  
+}
+  
+.snow__layer:nth-child(1) {
+  
+-webkit-animation-duration: 35s;
+        animation-duration: 35s;
+  
+}
+  
+.snow__layer:nth-child(1) .snow__fall {
+background: url(http://projet2-office-du-tourisme-ireki.com/wp-content/image/snow-blur.png);
+-webkit-transform: translateZ(25px);
+        transform: translateZ(25px);
+-webkit-animation-name: fallblur;
+        animation-name: fallblur;
+width: 4000px;
+left: -2000px;
+  
+}
+  
+.snow__layer:nth-child(2) {
+  
+-webkit-animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+        animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  
+}
+  
+.snow__layer:nth-child(2) .snow__fall {
+  
+background: url(http://projet2-office-du-tourisme-ireki.com/wp-content/image/snow-medium.png);
+-webkit-animation-duration: 25s;
+        animation-duration: 25s;
+  
+}
+  
+.snow__fall:nth-child(3) {
+  
+-webkit-animation-duration: 10s;
+        animation-duration: 10s;
+background-size: 250px;
+  
+}
+  
+.snow__fall:nth-child(2) {
+  
+-webkit-animation-duration: 20s;
+        animation-duration: 20s;
+background-size: 500px;
+  
+}
+  
+.snow__layer:nth-child(4) .snow__fall {
+  
+-webkit-animation-duration: 5s;
+        animation-duration: 5s;
+-webkit-transform: translateZ(50px);
+        transform: translateZ(50px);
+-webkit-animation-name: falllight;
+        animation-name: falllight;
+  
+}
+  
+  @-webkit-keyframes fall {
+  
+from {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
     }
 }
+  
+@keyframes fall {
+  
+  from {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+    }
+}
+  
+@-webkit-keyframes falllight {
+  
+  from {
+    -webkit-transform: translateY(-100px) translateZ(50px);
+            transform: translateY(-100px) translateZ(50px);
+    }
+}
+  
+@keyframes falllight {
+  
+  from {
+    -webkit-transform: translateY(-100px) translateZ(50px);
+            transform: translateY(-100px) translateZ(50px);
+    }
+}
+  
+@-webkit-keyframes fallblur {
+  
+  from {
+    -webkit-transform: translateY(-100px) translateZ(25px);
+            transform: translateY(-100px) translateZ(25px);
+    }
+}
+  
+@keyframes fallblur {
+  
+  from {
+    -webkit-transform: translateY(-100px) translateZ(25px);
+            transform: translateY(-100px) translateZ(25px);
+    }
+}
+  
+@-webkit-keyframes wind {
+  
+  to {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    }
+}
+  
+@keyframes wind {
+  
+to {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    }
+}
+    
+    
+.pere_noel img{
+        animation:rigth-to-left 15s linear infinite;
+    }
+
 
 @keyframes rigth-to-left {
     0%{
@@ -258,8 +432,28 @@ h1, .btn_connexion a{
         transform: translateX(0);
     }
 }
-    
 
+.pokemon{
+    margin-top: 30px;
+    margin-left: 800px;
+}
+
+span img{
+    background-color: rgb(242,242,242);
+    border-radius: 10px;
+}
+
+.accueil span{
+    font-size: 25px;
+}
+
+.pokemon_color{
+    background-color: yellow;
+    width: 100px;
+    padding: 0 15px;
+    text-align: center;
+    border-radius: 15px;
+}
 
 .article{
     margin-left:500px;
@@ -282,19 +476,96 @@ h1, .btn_connexion a{
     margin-left: 10px;
 }
 
+.accueil .pagination{
+    margin-left: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    a{
+        color: white;
+        font-weight: bold;
+    }
+    a,p{
+        padding: 20px 20px 30px 30px;
+        text-align: center;
+        border: 1px solid black;
+        
+        height: 20px;
+        margin-left: 15px;
+        background-color:cadetblue;
+        border-radius: 15px;
+    }
+}
+
 //Page video
 .video h2{
     margin-left: 300px;
     margin-top: 30px;
+    
 }
 .dessin_anime,.reportage{
     margin-left: 300px;
     margin-top: 30px;
+    
+    iframe{
+        margin-right: 100px;
+        float: left;
+        position: relative;
+    }
+    .hide{
+        display: none;
+    }
+
+    .show{
+        display: block;
+        animation: show .5s ease;
+    }
+    .pagination{
+        width: 300px;
+        float: left;
+        padding: 15px;
+        margin-left: 600px;
+    }
+    div{
+        display: inline-block;
+        
+    }
 }
 
-iframe{
-    margin-right: 20px;
+.dessin_anime .pagination .prev.disabled,.dessin_anime .pagination .next.disabled{
+    border-color: gray;
+    color: black;
+    font-weight: bold;
+    pointer-events: none;
+    background-color:lightcoral;
+    border-radius: 15px;
 }
+
+@keyframes show{
+    0%{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.dessin_anime .pagination .page{
+    color: gray;
+}
+
+.dessin_anime .pagination .prev, .dessin_anime .pagination .next{
+    color: #000;
+    background-color: skyblue;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 15px;
+    font-size: 15px;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+
 
 //Page dessin
 .dessin h2{
@@ -317,6 +588,7 @@ iframe{
             margin-top: 30px;
             margin-left: 30px;
             border: 1px solid black;
+            cursor: pointer;
         }
         .noir{
             background-color: black;
@@ -357,23 +629,28 @@ iframe{
             background-color:brown;    
         }
         .stylo{
-            height: 20px;
-            width: 20px;
+            
             margin-top: 30px;
             margin-left: 30px;
+            cursor: pointer;
         }
         .gomme{
             
-                height: 20px;
-                width: 20px;
-                margin-top: 30px;
-                margin-left: 30px;
-                   
-        }       
+            margin-top: 30px;
+            margin-left: 30px;
+            cursor: pointer;
+        }   
+        i{
+            font-size: 30px;
+        }    
 }
 
 .dessin button{
         margin-left: 300px;
+}
+
+#enregistrer{
+    margin-left: 20px;
 }
 canvas{
     
