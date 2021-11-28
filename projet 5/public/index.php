@@ -4,53 +4,77 @@ require('controller/controller.php');
 $controller = new Controller;
 
 if(isset($_GET['action'])):
-    if ($_GET['action'] == 'bienvenu'): 
+    switch ($_GET['action']):
+    case 'bienvenu': 
         $controller->bienvenu();
-    elseif ($_GET['action'] == 'accueil'): 
+        break;
+    case 'accueil': 
         $controller->accueil();
-    elseif($_GET['action'] == 'inscription'):
+        break;
+    case 'inscription':
         $controller->inscription();
-    elseif($_GET['action'] == 'connexion'):
+        break;
+    case 'connexion':
         $controller->connexion();
-    elseif($_GET['action'] == 'deconnexion'):
+        break;
+    case 'deconnexion':
         $controller->deconnexion();
-    elseif($_GET['action'] == 'profil'):
+        break;
+    case 'profil':
         $controller->profil();    
-    elseif($_GET['action'] == 'utilisateur'):
+        break;
+    case 'utilisateur':
         $controller->utilisateur();    
-    elseif($_GET['action'] == 'video'):
+        break;
+    case 'video':
         $controller->video();
-    elseif($_GET['action'] == 'dessin'):
+        break;
+    case 'dessin':
         $controller->dessin();
-    elseif($_GET['action'] == 'article'):
+        break;
+    case 'article':
         $controller->article();
-    elseif($_GET['action'] == 'creer_admin'):
+        break;
+    case 'creer_admin':
         $controller->creer_admin();
-    elseif($_GET['action'] == 'creer_moderateur'):
+        break;
+    case 'creer_moderateur':
         $controller->creer_moderateur();
-    elseif($_GET['action'] == 'creer_utilisateur'):
+        break;
+    case 'creer_utilisateur':
         $controller->creer_utilisateur();
-    elseif($_GET['action'] == 'suprime_utilisateur'):
+        break;
+    case 'suprime_utilisateur':
         $controller->suprime_utilisateur();
-    elseif($_GET['action'] == 'messages'):
+        break;
+    case 'messages':
         $controller->messages();
-    elseif($_GET['action'] == 'signal_comment'):
+        break;
+    case 'signal_comment':
         $controller->signal_comment();
-    elseif($_GET['action'] == 'suprime_article'):
+        break;
+    case 'suprime_article':
         $controller->suprime_article();
-    elseif($_GET['action'] == 'signal_article_user'):
+        break;
+    case 'signal_article_user':
         $controller->signal_article_user();
-    elseif($_GET['action'] == 'moderer_article'):
+        break;
+    case 'moderer_article':
         $controller->moderer_article();
-    elseif($_GET['action'] == 'commentaire'):
+        break;
+    case 'commentaire':
         $controller->commentaire();
-    elseif($_GET['action'] == 'suprime_comment'):
+        break;
+    case 'suprime_comment':
         $controller->suprime_comment();
-    elseif($_GET['action'] == 'moderer_comment'):
+        break;
+    case 'moderer_comment':
         $controller->moderer_comment();
-    elseif($_GET['action'] == 'jeux'):
+        break;
+    case 'jeux':
         $controller->jeux();
-    endif;
+        break;
+    endswitch;
 else:
-    $controller->accueil();
+    $controller->bienvenu();
 endif;
