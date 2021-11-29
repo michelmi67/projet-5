@@ -28,23 +28,41 @@ endif;
         ?>
         <h2>Dessin animé</h2>
         <div class = "dessin_anime">
-            <div class="video_dessin animé">
-                <iframe class = "anime" width="300" height="200" src="https://www.youtube-nocookie.com/embed/DEDm0N70chs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe class = "anime" width="300" height="200" src="https://www.youtube.com/embed/Yap-xKjln3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe class = "anime" width="300" height="200" src="https://www.youtube.com/embed/9fQ5bW-bTig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe class = "anime" width="300" height="200" src="https://www.youtube.com/embed/D93IehjZ1Uk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
-                <iframe class = "anime" width="300" height="200" src="https://www.youtube.com/embed/yjKDe_t9vmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video_dessin_anime">
+                <iframe width="300" height="200" src="https://www.youtube-nocookie.com/embed/DEDm0N70chs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/Yap-xKjln3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/9fQ5bW-bTig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/D93IehjZ1Uk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/yjKDe_t9vmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/tSCw048y7T8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/JNvoW7HtEAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/y9qlEO_A8mU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/_nbWRs1ffl8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/hmqKwCtPvi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>     
+            </div>
+                <div class="pagination">
+                    <div class="prev">Précédent</div>
+                    <div class="page">Page <span class = "page-num"></span></div>
+                    <div class="next">Suivant</div>
                 </div>
-        </div>
-        <div class="button">
-            <button class = btn-primary>precedent</button>
-            <button class = btn-primary>suivant</button>
         </div>
 
         <h2>reportage</h2>
-        <div class="reportage">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/KUbT7t2pmxg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="dessin_anime">
+            <div class="video_dessin_anime">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/KUbT7t2pmxg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/Mz9p-ROt1HA?list=PLJhV4fb2N3DU_b-duMRNxKbB3cim0ACJZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/x5SdEBlF0c8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/I7cajVnzm8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/ZBH1DnP-gsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="pagination">
+                    <div class="prev">Précédent</div>
+                    <div class="page">Page <span class = "page-num"></span></div>
+                    <div class="next">Suivant</div>
+                </div>
         </div>
-        <script src = "js/main.js"></script>    
+        <script src= "js/PaginationObjet.js"></script>
+        <script src = "js/main_pagination.js"></script>    
     </body>   
 </html>
