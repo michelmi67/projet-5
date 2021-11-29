@@ -51,6 +51,8 @@ endif;
             </div>
         </div>    
         <button type="button" class="btn btn-secondary" id ="bt-clear">effacer</button>
+        <button type="button" id = "enregistrer" class = "btn btn-primary" >télécharger</button>
+        <img src = "" id = "imgConverted">
         <h2>Télécharge ton dessins à colorier !</h2>
         <div class = "coloriage">
             <div class = "dessin_coloriage">
