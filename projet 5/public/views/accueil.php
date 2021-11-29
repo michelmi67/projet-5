@@ -29,10 +29,30 @@ endif;
         ?>
         <!-- bandeau animé -->
         <div class="pere_noel">
-            <img src = "image/pere_noel.jpg" alt = "image pere noel">
+            <img src = "image/pere_noel_1.jpg" alt = "image pere noel">
+            <div class="snow">
+                <div class="snow__layer"><div class="snow__fall"></div></div>
+                <div class="snow__layer"><div class="snow__fall"></div></div>
+                <div class="snow__layer">
+                    <div class="snow__fall"></div>
+                    <div class="snow__fall"></div>
+                    <div class="snow__fall"></div>
+                </div>
+                    <div class="snow__layer"><div class="snow__fall"></div></div>
+                </div>
+            </div>
         </div>
         <h2 class = "accueil_h2">Actualité</h2>
         <article>
+            <h3 class = "pokemon_h3">Le Pokémon du mois est :</h3>
+            <div class="pokemon">
+                <span class = "img_pokemon"></span>
+                <div class="id_nom">
+                    <span class = "id_pokemon"></span>
+                    <span class = "nom_pokemon"></span>
+                </div>
+                <p class = pokemon_color>electrik</p>
+            </div>
             <?php
             foreach($articles as $article):
                 ?>
@@ -59,8 +79,23 @@ endif;
                 </div>
                 <?php
             endforeach;
+
+            //Pagination
             ?>
+            <div class="pagination">
+                <?php
+                for($i = 1; $i <= $nb_de_page; $i++):
+                    if($i == $page):
+                        echo "<p>". $i. "</p>";
+                    else:
+                        echo "<a href ='?action=accueil&page=$i'>$i</a>";
+                    endif;
+                endfor;
+            ?>
+            </div>
+            
         </article>
+        <script src = js/pokemon.js></script>
         <script src = "js/ModalObjet.js"></script>
         <script src = "js/main.js"></script>
     </body>   
