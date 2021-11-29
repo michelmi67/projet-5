@@ -1,5 +1,5 @@
 class CanvasObjet {
-    constructor(canvas,ctx,cleanCanvas,black,yellow,red,blue,green,pink,grey,white,violet,orange,turquoise,brown) {
+    constructor(canvas,ctx,cleanCanvas,black,yellow,red,blue,green,pink,grey,white,violet,orange,turquoise,brown,pen,rubber,btnDownload,image) {
         this.canvas = canvas;
         this.cleanCanvas = cleanCanvas;
         this.ctx = ctx;
@@ -20,6 +20,12 @@ class CanvasObjet {
         this.orange = orange;
         this.turquoise = turquoise;
         this.brown = brown;
+        this.pen = pen;
+        this.rubber = rubber;
+        this.btnDownload = btnDownload;
+        this.image = image;
+        this.a = null;
+        
     }
        
     // Function (start position, finished position, draw, clear )
@@ -67,54 +73,61 @@ class CanvasObjet {
     //changer de couleur le tracer
     changeColor(){
         this.black.addEventListener('click',function(){
-            
             ctx.strokeStyle = "black";
-        })
+        });
         this.yellow.addEventListener('click',function(){
-            
             ctx.strokeStyle = "yellow";
-        })
+        });
         this.red.addEventListener('click',function(){
-            
             ctx.strokeStyle = "red";
-        })
+        });
         this.blue.addEventListener('click',function(){
-            
             ctx.strokeStyle = "blue";
-        })
+        });
         this.green.addEventListener('click',function(){
-            
             ctx.strokeStyle = "green";
-        })
+        });
         this.pink.addEventListener('click',function(){
-            
             ctx.strokeStyle = "pink";
-        })
+        });
         this.grey.addEventListener('click',function(){
-            
             ctx.strokeStyle = "grey";
-        })
+        });
         this.white.addEventListener('click',function(){
-            
             ctx.strokeStyle = "white";
-        })
+        });
         this.violet.addEventListener('click',function(){
-            
             ctx.strokeStyle = "violet";
-        })
+        });
         this.orange.addEventListener('click',function(){
-            
             ctx.strokeStyle = "orange";
-        })
+        });
         this.turquoise.addEventListener('click',function(){
-            
             ctx.strokeStyle = "turquoise";
-        })
+        });
         this.brown.addEventListener('click',function(){
             
             ctx.strokeStyle = "brown";
-        })
+        });
+        this.pen.addEventListener('click',function(){
+            ctx.strokeStyle = "black"; 
+         });
+        this.rubber.addEventListener('click',function(){
+           ctx.strokeStyle = "white"; 
+        });
     }
+
+    //Pour télécharger le canvas
+    download(){
+        this.btnDownload.addEventListener('click',function(){
+            this.a = document.createElement('a');
+            document.body.appendChild(this.a);
+            this.a.href = canvas.toDataURL();
+            this.a.download = 'canvas-image.png';
+            this.a.click();
+            document.body.removeChild(this.a);
+        });
+    }   
 
     canvasEvent(){
         //évènement du canvas avec la souris
