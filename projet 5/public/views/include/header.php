@@ -1,5 +1,5 @@
 <div class = "logo">
-    <a href = "?action=accueil"><img src = "image/logo.png" alt = "logo du site"></a>
+    <a href = "?action=accueil&page=1"><img src = "image/logo.png" alt = "logo du site"></a>
     <h1>Social Kids</h1>
     <div class = "btn_connexion">
         <ul><li><a href = "?action=connexion">Connecte-toi !</a>
