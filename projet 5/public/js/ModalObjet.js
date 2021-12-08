@@ -1,5 +1,0 @@
-class ModalObjet{
-    constructor(){
-        
-    }
-}
