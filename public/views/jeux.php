@@ -38,15 +38,15 @@ endif;
         </div>
         <h3 class = "morpion" >Morpion</h3>
         <section id="jeu">
-            <div data_index = "0" class="case"></div>
-            <div data_index = "1" class="case"></div>
-            <div data_index = "2" class="case"></div>
-            <div data_index = "3" class="case"></div>
-            <div data_index = "4" class="case"></div>
-            <div data_index = "5" class="case"></div>
-            <div data_index = "6" class="case"></div>
-            <div data_index = "7" class="case"></div>
-            <div data_index = "8" class="case"></div>
+            <div data-index = "0" class="case"></div>
+            <div data-index = "1" class="case"></div>
+            <div data-index = "2" class="case"></div>
+            <div data-index = "3" class="case"></div>
+            <div data-index = "4" class="case"></div>
+            <div data-index = "5" class="case"></div>
+            <div data-index = "6" class="case"></div>
+            <div data-index = "7" class="case"></div>
+            <div data-index = "8" class="case"></div>
         </section>
         <h4></h4>
         <button id = "recommencer" class = "btn btn-primary">recommencer</button>

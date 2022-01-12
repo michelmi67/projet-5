@@ -242,6 +242,11 @@ class Controller
     public function messages()
     {
         $post_manager = new Post_Manager();
+        //nombre d'article
+        $nb_articles = $post_manager->compte_articles();
+        $nb_elements_par_page = 6;
+        $nb_de_page = ceil($nb_articles["cpt"]/$nb_elements_par_page);
+        $page = $nb_de_page;
         $signaler = 'false';
         $articles = $post_manager->recup_all_posts($signaler);
         $signaler = 'true';

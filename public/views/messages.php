@@ -51,7 +51,7 @@ endif;
                         <td><?php echo $article_signale['message'] ;?></td>
                         <td><?php echo $article_signale['signaler'];?></td>
                         <td>
-                            <a href = "?action=accueil#article_<?php echo $article_signale['id']; ?>"><i class="far fa-eye"></i></a>
+                            <a href = "?action=article&id=<?php echo $article_signale['id']; ?>"><i class="far fa-eye"></i></a>
                             <a href = "?action=moderer_article&id=<?php echo $article_signale['id']; ?>"><i class="far fa-smile-wink"></i></a>
                             <a class ="supression" href =  "?action=suprime_article&id=<?php echo $article_signale['id']; ?>"><i class="fas fa-times"></i></a>
                         </td>
@@ -86,7 +86,7 @@ endif;
                         <td><?php echo $article['message'];?></td>
                         <td><?php echo $article['signaler'];?></td>
                         <td>
-                            <a href = "?action=accueil#article_<?php echo $article['id']; ?>"><i class="far fa-eye"></i></a>
+                            <a href = "?action=article&id=<?php echo $article['id']; ?>"><i class="far fa-eye"></i></a>
                             <a class ="supression" href = "?action=suprime_article&id=<?php echo $article['id']; ?>"><i class="fas fa-times"></i></a>
                         </td>
                         <td><?php echo $article['date_creation_fr'];?></td>

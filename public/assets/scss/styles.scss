@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'awesome_possum_demoshine';
     src: url('font/awesome_possum_shine_demo-webfont.woff2') format('woff2'),
@@ -21,8 +22,13 @@ h3{
 
 //header//
 .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: deepskyblue;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     
     img{
         width: 500px;
@@ -36,18 +42,16 @@ h1, .btn_connexion a{
     text-shadow: white 1px 1px 1px;
     
     }
-.btn_connexion{
-    margin-left: 1000px;
-    margin-top: 50px;
-    position: absolute;
-    right: 10px;
-    top: -50px;
 
-    img{
+.connexion_membre{
+    display:none;
+}
+
+.btn_connexion img{
     width: 100px;
     height: 100px;
     }
-}
+
 .btn_connexion:hover{
     background-color:purple;
     border-radius: 15px;
@@ -56,6 +60,7 @@ h1, .btn_connexion a{
 
 .btn_connexion ul{
     padding: 5px;
+    
 }
 
 .btn_connexion ul:hover .menu_li{
@@ -77,15 +82,26 @@ h1, .btn_connexion a{
 }
 
 //nav
-
 .navbar{
     background-color: yellow;
     text-shadow: 0 0 1px black;
-    box-shadow: 1px 1px 3px black;
+    -webkit-box-shadow: 1px 1px 3px black;
+            box-shadow: 1px 1px 3px black;
     border-radius: 0 0 10px 0;
     font-family: "awesome_possum_shine_demo-webfont";
     width: 700px;
     
+    ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    }
+
+    li{
+        list-style: none;
+    }
+
     a{
     background-color: red;
     width: 150px;
@@ -102,7 +118,7 @@ h1, .btn_connexion a{
         text-shadow: white 1px 1px 1px;
     }
 }   
-//nav_left//
+//nav_left
 .nav_left{
     float: left;
     width: 260px;
@@ -129,6 +145,8 @@ h1, .btn_connexion a{
 }
 //nav_admin et nav_moderateur
 .nav_admin,.nav_moderateur{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     a{
         margin-left: 10px;
@@ -241,16 +259,18 @@ h1, .btn_connexion a{
     margin-left: 500px;
 }
 
-.accueil p, span{
+.accueil span{
     font-weight: bold;
 }
 
 .pere_noel{
     margin-top: 30px;
-    width: 85%;
+    width: 1200px;
     margin-left: 270px;
     position: relative;
     background-color: black;
+    display: block;
+    
    
 }
   
@@ -420,16 +440,36 @@ to {
     
     
 .pere_noel img{
-        animation:rigth-to-left 15s linear infinite;
+    -webkit-animation:rigth-to-left 15s linear infinite;
+            animation:rigth-to-left 15s linear infinite;
+    
     }
+
+
+@-webkit-keyframes rigth-to-left {
+    0%{
+        
+        -webkit-transform: translateX(891px);
+        
+                transform: translateX(891px);
+    }
+    100%{
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
 
 
 @keyframes rigth-to-left {
     0%{
-        transform: translateX(1300px);
+        
+        -webkit-transform: translateX(891px);
+        
+                transform: translateX(891px);
     }
     100%{
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 
@@ -453,6 +493,7 @@ span img{
     padding: 0 15px;
     text-align: center;
     border-radius: 15px;
+    
 }
 
 .article{
@@ -469,6 +510,10 @@ span img{
     img{
         width: 800px;
         min-height: 400px;
+    }
+
+    p{
+        font-size: 20px;
     }
 }
 
@@ -510,6 +555,8 @@ span img{
         margin-right: 100px;
         float: left;
         position: relative;
+        width: 300px;
+        height: 200px;
     }
     .hide{
         display: none;
@@ -517,7 +564,8 @@ span img{
 
     .show{
         display: block;
-        animation: show .5s ease;
+        -webkit-animation: show .5s ease;
+                animation: show .5s ease;
     }
     .pagination{
         width: 300px;
@@ -543,14 +591,29 @@ span img{
     border-radius: 15px;
 }
 
-@keyframes show{
+@-webkit-keyframes show{
     0%{
         opacity: 0;
-        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+                transform: scale(0.9);
     }
     100%{
         opacity: 1;
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+@keyframes show{
+    0%{
+        opacity: 0;
+        -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
@@ -576,14 +639,19 @@ span img{
     margin-top: 30px;
 }
 .canvas_couleur{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 1100px;
     margin-top: 30px;
     .couleur{
         width: 200px;
         height: 450px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
         .noir,.jaune,.rouge,.bleu,.vert,.rose,.gris,.blanc,.violet,.orange,.turquoise,.brun{
             height: 20px;
@@ -662,8 +730,11 @@ canvas{
 }
 
 .coloriage{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     margin-left: 300px;
     background-color:lightcoral;
     padding-top: 30px;
@@ -699,6 +770,8 @@ canvas{
         text-shadow: 5px 5px 5px white;
     }
     .i{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin-right: 15px;
     }
@@ -745,40 +818,771 @@ canvas{
 }
 
 #jeu{
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 300px;
     margin-left: 300px;
 }
 
+.jeux h4{
+    margin-left: 315px;
+}
+
+#recommencer{
+    margin-left: 30px;
+}
+
 .case{
     border: solid 1px black;
     height: 100px;
+    line-height: 100px;
+    font-size: 60px;
+    text-align: center;
+    
 }
 
+//page bienvenue
+.bienvenu h2{
+    margin-top: 50px;
+    margin-left: 30px;
+    
+}
+
+.bienvenu .connexion_membre{
+    display: block;
+}
+
+.bienvenu .btn_connexion img{
+display: none;
+}
+
+.slide img{
+
+    width: 50%;
+    height: 250px;
+    position: relative;
+    -webkit-box-shadow: 2px 2px 2px black;
+            box-shadow: 2px 2px 2px black;
+    border-radius: 10px;
+    
+    }
+    
+.slide{
+    height: 300px;
+    margin-top: 50px;
+    margin-bottom: 100px;   
+    margin-left:50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    
+}
+    
+.slide_container p{
+    margin-top: 15px;
+}
+    
+.slide_container p{
+    padding-left: 10px;
+}
+    
+i{
+    font-size: 50px;
+}
+    
+#back,#next{
+    color: red;
+    border:solid black 3px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 30px;
+    margin-left: 30px;
+}
+    
+.prev_next{
+    margin-left: 60%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    margin-bottom: 50px;
+}
+
+.bienvenu h3{
+    text-align:center ;
+}
+    
 /*----------------------------------------------------------------------- Media queries -------------------------------------------------------------------------------------*/
 
 @media (max-width: 576px) {
 
+  //header//
+
     .logo img{
         width: 150px;
-        height: 50px;
+        height: 80px;
     }
-
-    .accueil h1{
-        font-size: 15px;
+        
+    .logo h1{
+            font-size: 15px;
     }
-
+     
     .btn_connexion{
-        right: 10px;
-        top: -55px;
+        margin-top:10px;
+        z-index: 1;
+
+        img{
+        width: 50px;
+        height: 50px;
+        }
+    }
+
+    .btn_connexion a{
+        font-size:15px;
+    }
+
+    //nav
+    .navbar{
+    
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    padding: 0;
+
+        a{
+   
+        width: 75px;
+        padding: 5px 0px;
+        font-size: 20px;
+        border-radius: 20px;
+        margin-left: 5px;    
+        }
+    }  
+
+    //nav_left//
+    .nav_left{
+        width: 100%;
+        height: 60px;
+        background-color: deepskyblue;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+
+        p{
+        display: none;
+        }
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    //Page inscription
+    .inscription label,.inscription .btn,.inscription p{
+        margin-left: 30px;
+        margin-top:10px;
+    }
+
+    .inscription input{
+        margin-left: 10px;
+    }
+
+    //Page profil
+    .tinymce{
+    margin-left: 15px;
+    margin-top: 50px;
+    width: 300px;
+    }
+
+    .tox {
+        width: 100% !important;
+    }
+
+    .tox-toolbar{
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-wrap: wrap !important;
+            flex-wrap: wrap !important;
+        width: 100% !important;
+    }
+
+    .mce-content-body{
+        width: 100% !important; 
+    }
+
+    //Page accueil
+    .accueil_h2,.pokemon_h3{
+    margin-left: 30px;
+    }
+
+    .pere_noel{
+        width: 280px;
+        margin-left: 20px;
+        height: 75px;
+
+            img{
+                height: 75px;
+                width: 130px;
+               
+            }
+        }
+   
+    @-webkit-keyframes rigth-to-left {
+        0%{
+            -webkit-transform: translateX(150px);
+                    transform: translateX(150px);
+        }
+        100%{
+            -webkit-transform: translateX(0);
+                    transform: translateX(0);
+        }
+    }
+   
+    @keyframes rigth-to-left {
+        0%{
+            -webkit-transform: translateX(150px);
+                    transform: translateX(150px);
+        }
+        100%{
+            -webkit-transform: translateX(0);
+                    transform: translateX(0);
+        }
+    }
+
+    .pokemon{
+        margin-left: 30px;
+    }
+
+    .article{
+        margin-left: 0;
+        width: 90%;
+        margin-left: 5%;
     
         img{
-        width: 30px;
-        height: 30px;
-        }
-        a{
-            font-size: 10px;
+            width: 375px;
+            max-height: 400px;
         }
     }
+
+    .accueil .pagination{
+        margin-left: 40px;
+    }
+
+    //Page video
+    .video h2{
+        margin-left: 30px;
+    }
+
+    .dessin_anime,.reportage,.musique{
+    margin-left: 30px;
+    
+        iframe{
+            margin-right: 10px;
+            width: 150px;
+            height: 100px;
+        }
+
+        .pagination{
+            width: 300px;
+            padding: 15px;
+            margin-left: 30px;
+        }
+    }
+
+    //Page dessin
+    .dessin h2{
+        margin-left: 30px;   
+    }
+
+    .canvas_couleur{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        width: 90%;
+   
+        .couleur{
+            width: 300px;
+            height: 200px;
+        }       
+    }
+
+    .dessin button{
+        margin-left: 30px;
+    }
+
+    #enregistrer{
+        margin-left: 20px;
+    }
+
+    canvas{
+        margin-left: 0px;
+    }
+
+    .coloriage{
+        margin-left: 5%;
+        padding-left: 30px;
+        width: 90%;
+    
+        img{
+            width: 115px;
+            height: 115px;
+        }
+    }
+
+    //Page jeux
+    .jeux h2{
+        margin-left: 30px;
+    }
+
+    .shifoumi{
+        margin-left: 30px;
+
+        button{
+            width: 50px;
+            height: 50px;
+        }
+
+        i{
+            font-size: 30px;
+        }
+
+        .resultat{
+            font-size: 50px;
+        }
+    }
+
+    .morpion{
+        margin-left: 30px;
+    }
+
+    #jeu{
+        margin-left: 30px;
+    }
+    .jeux h4{
+        margin-left: 15px;
+    }
+
+
+    //page Bienvenu
+    .bienvenu i{
+        margin-top: 20px;
+
+    }
+        
+        
+    .prev_next{
+        margin-left: 45%;
+        
+    }  
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+@media (min-width: 577px) and (max-width: 992px){
+    
+    //header//
+    .logo img{
+        width: 300px;
+        height: 150px;
+    }
+        
+    .logo h1{
+            font-size: 25px;
+    }
+     
+    .btn_connexion{
+        margin-top:10px;
+
+        img{
+        width: 75px;
+        height: 75px;
+        }
+    }
+
+    //nav
+    .navbar{
+    
+        border-radius: 0 0 10px 10px;
+        width: 100%;
+       
+    
+            a{
+       
+            width: 110px;
+            padding: 5px 10px;
+            font-size: 25px;
+            border-radius: 20px;
+            margin-left: 25px;    
+            }
+        }  
+    
+        //nav_left//
+        .nav_left{
+            width: 100%;
+            height: 75px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+    
+            p{
+            display: none;
+            }
+    
+            img{
+                width: 75px;
+                height: 75px;
+            }
+        }
+
+        //Page inscription
+    .inscription label,.inscription .btn,.inscription p{
+        margin-left: 75px;
+        margin-top:10px;
+    }
+
+    .inscription input{
+        margin-left: 20px;
+    }
+ 
+    //Page profil
+    .tinymce{
+        margin-left: 15px;
+        margin-top: 50px;
+        width: 600px;
+        }
+    
+        .tox {
+            width: 100% !important;
+        }
+    
+        .tox-toolbar{
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -ms-flex-wrap: wrap !important;
+                flex-wrap: wrap !important;
+            width: 100% !important;
+        }
+    
+        .mce-content-body{
+            width: 100% !important; 
+        }
+
+        //Page accueil
+    .accueil_h2,.pokemon_h3{
+        margin-left: 30px;
+        }
+    
+        .pere_noel{
+            width: 537px;
+            margin-left: 20px;
+            height: 75px;
+    
+                img{
+                    height: 75px;
+                }
+            }
+       
+        @-webkit-keyframes rigth-to-left {
+            0%{
+                -webkit-transform: translateX(394px);
+                        transform: translateX(394px);
+            }
+            100%{
+                -webkit-transform: translateX(0);
+                        transform: translateX(0);
+            }
+        }
+       
+        @keyframes rigth-to-left {
+            0%{
+                -webkit-transform: translateX(394px);
+                        transform: translateX(394px);
+            }
+            100%{
+                -webkit-transform: translateX(0);
+                        transform: translateX(0);
+            }
+        }
+    
+        .pokemon{
+            margin-left: 300px;
+        }
+    
+        .article{
+            margin-left: 5%;
+            width: 90%;
+            
+        
+            img{
+                width: 375px;
+                max-height: 400px;
+                margin-left: 150px;
+            }
+        }
+    
+        .accueil .pagination{
+            margin-left: 40px;
+        }
+
+    //Page video
+    .video h2{
+        margin-left: 30px;
+    }
+
+    .dessin_anime,.reportage,.musique{
+    margin-left: 30px;
+    
+        iframe{
+            margin-right: 20px;
+            width: 150px;
+            height: 100px;
+        }
+
+        .pagination{
+            width: 300px;
+            padding: 15px;
+            margin-left: 25%;
+        }
+    }
+
+    //Page dessin
+    .dessin h2{
+        margin-left: 30px;   
+    }
+
+    .canvas_couleur{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        width: 90%;
+   
+        .couleur{
+            width: 300px;
+            height: 200px;
+        }       
+    }
+
+    .dessin button{
+        margin-left: 30px;
+    }
+
+    #enregistrer{
+        margin-left: 20px;
+    }
+
+    canvas{
+        margin-left: 30px;
+    }
+
+    .coloriage{
+        margin-left: 5%;
+        padding-left: 30px;
+        width: 90%;
+    
+        img{
+            width: 115px;
+            height: 115px;
+        }
+    }
+
+    //Page jeux
+    .jeux h2{
+        margin-left: 30px;
+    }
+
+    .shifoumi{
+        margin-left: 30px;
+
+        button{
+            width: 50px;
+            height: 50px;
+        }
+
+        i{
+            font-size: 30px;
+        }
+
+        .resultat{
+            font-size: 50px;
+        }
+    }
+
+    .morpion{
+        margin-left: 30px;
+    }
+
+    #jeu{
+        margin-left: 30px;
+    }
+    
+    .jeux h4{
+        margin-left: 15px;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media (min-width: 993px) and (max-width:1200px){
+
+    //header//
+    .logo img{
+        width: 300px;
+        height: 150px;
+    }
+        
+    .logo h1{
+            font-size: 25px;
+    }
+     
+    .btn_connexion{
+        margin-top:10px;
+
+        img{
+        width: 75px;
+        height: 75px;
+        }
+    }
+
+    //nav
+    .navbar{
+    
+        border-radius: 0 0 10px 10px;
+        width: 700px;
+       
+    
+            a{
+       
+            width: 110px;
+            padding: 5px 10px;
+            font-size: 25px;
+            border-radius: 20px;
+            margin-left: 25px;    
+            }
+        }
+        
+    //Page inscription
+    .inscription label,.inscription .btn,.inscription p{
+        margin-left: 75px;
+        margin-top:10px;
+    }
+
+    .inscription input{
+        margin-left: 20px;
+    }
+
+    //Page profil
+    .tinymce{
+        margin-left: 15px;
+        margin-top: 50px;
+        width: 900px;
+        }
+    
+        .tox {
+            width: 100% !important;
+        }
+    
+        .tox-toolbar{
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -ms-flex-wrap: wrap !important;
+                flex-wrap: wrap !important;
+            width: 100% !important;
+        }
+    
+        .mce-content-body{
+            width: 100% !important; 
+        }
+
+        //Page accueil
+        .accueil_h2,.pokemon_h3{
+            margin-left: 330px;
+        }
+    
+        .pere_noel{
+            width: 673px;
+            margin-left: 300px;
+            height: 75px;
+    
+                img{
+                    height: 75px;
+                }
+            }
+       
+        @-webkit-keyframes rigth-to-left {
+            0%{
+                -webkit-transform: translateX(530px);
+                        transform: translateX(530px);
+            }
+            100%{
+                -webkit-transform: translateX(0);
+                        transform: translateX(0);
+            }
+        }
+       
+        @keyframes rigth-to-left {
+            0%{
+                -webkit-transform: translateX(530px);
+                        transform: translateX(530px);
+            }
+            100%{
+                -webkit-transform: translateX(0);
+                        transform: translateX(0);
+            }
+        }
+    
+        .pokemon{
+            margin-left: 600px;
+        }
+    
+        .article{
+            margin-left: 330px;
+            width: 65%;
+            
+        
+            img{
+                width: 375px;
+                max-height: 400px;
+                margin-left: 150px;
+            }
+        }
+    
+        .accueil .pagination{
+            margin-left: 440px;
+        }
+
+        //Page video
+    .video h2{
+        margin-left: 30px;
+    }
+
+    .dessin_anime,.reportage,.musique{
+    margin-left: 330px;
+    
+        iframe{
+            margin-right: 20px;
+            width: 175px;
+            height: 115px;
+        }
+
+        .pagination{
+            width: 300px;
+            padding: 15px;
+            margin-left: 25%;
+        }
+    }
+
 }

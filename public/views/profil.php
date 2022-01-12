@@ -61,6 +61,8 @@ endif;
         selector: 'textarea',
         plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak emoticons',
         toolbar_mode: 'floating',
+        entity_encoding: "numeric",
+        
         });
         </script>
         <script src = "js/AlertObjet.js"></script>

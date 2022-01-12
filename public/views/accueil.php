@@ -99,8 +99,6 @@ endif;
         </article>
         <script src = "js/AlertObjet.js"></script>
         <script src = "js/main_alert.js"></script>
-        <script src = js/pokemon.js></script>
-        <script src = "js/ModalObjet.js"></script>
-        <script src = "js/main.js"></script>
+        <script src= js/main_pokemon.js></script>
     </body>   
 </html>
